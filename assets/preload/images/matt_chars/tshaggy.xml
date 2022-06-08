@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="tshaggy.png"><SubTexture name="tshaggy down0000" x="0" y="0" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0000" x="498" y="0" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0001" x="996" y="0" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0002" x="1494" y="0" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0003" x="1992" y="0" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0004" x="0" y="624" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0005" x="498" y="624" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0006" x="996" y="624" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0007" x="1494" y="624" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0008" x="1992" y="624" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0009" x="0" y="1248" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy idle0010" x="498" y="1248" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy left0000" x="996" y="1248" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0000" x="1494" y="1248" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0001" x="1992" y="1248" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0002" x="0" y="1872" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0003" x="498" y="1872" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0004" x="996" y="1872" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0005" x="1494" y="1872" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0006" x="1992" y="1872" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0007" x="0" y="2496" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0008" x="498" y="2496" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0009" x="996" y="2496" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy right0010" x="1494" y="2496" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+<SubTexture name="tshaggy up0000" x="1992" y="2496" width="498" height="624" frameX="0" frameY="0" frameWidth="498" frameHeight="624" />
+</TextureAtlas>

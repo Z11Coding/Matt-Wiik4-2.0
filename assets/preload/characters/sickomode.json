@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				2,
+				0
+			],
+			"anim": "idle",
+			"fps": 18,
+			"name": "pissed idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				10,
+				-4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pissed up"
+		},
+		{
+			"offsets": [
+				3,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pissed down"
+		},
+		{
+			"offsets": [
+				22,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pissed left"
+		},
+		{
+			"offsets": [
+				2,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pissed right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "matt_chars/pissed",
+	"position": [
+		670,
+		160
+	],
+	"healthicon": "madmatt",
+	"flip_x": true,
+	"hpdrain": true,	
+	"screenshake": true,
+	"healthbar_colors": [
+		255,
+		82,
+		15
+	],
+	"camera_position": [
+		-400,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 0.8
+}

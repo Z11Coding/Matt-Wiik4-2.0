@@ -1,0 +1,111 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-2,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "tmatt idle"
+		},
+		{
+			"offsets": [
+				-2,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "tmatt left"
+		},
+		{
+			"offsets": [
+				-5,
+				8
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "tmatt down"
+		},
+		{
+			"offsets": [
+				11,
+				27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "tmatt up"
+		},
+		{
+			"offsets": [
+				2,
+				30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "tmatt right"
+		},
+		{
+			"offsets": [
+				57,
+				11
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "firstDeath",
+			"loop": false,
+			"name": "tmatt death"
+		},
+		{
+			"offsets": [
+				57,
+				11
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathLoop",
+			"loop": true,
+			"name": "tmatt death"
+		},
+		{
+			"offsets": [
+				57,
+				11
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathConfirm",
+			"loop": false,
+			"name": "tmatt idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tmatt",
+	"position": [
+		-1300,
+		-1070
+	],
+	"healthicon": "bf",
+	"flip_x": false,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		-1010,
+		1200
+	],
+	"sing_duration": 4,
+	"scale": 0.22
+}

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="pissed.png"><SubTexture name="pissed down0000" x="0" y="0" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed down0001" x="800" y="0" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed down0002" x="1600" y="0" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed idle0000" x="2400" y="0" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed idle0001" x="0" y="676" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed idle0002" x="800" y="676" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed idle0003" x="1600" y="676" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed idle0004" x="2400" y="676" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed left0000" x="0" y="1352" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed left0001" x="800" y="1352" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed left0002" x="1600" y="1352" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed right0000" x="2400" y="1352" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed right0001" x="0" y="2028" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed right0002" x="800" y="2028" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed up0000" x="1600" y="2028" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed up0001" x="2400" y="2028" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+<SubTexture name="pissed up0002" x="0" y="2704" width="800" height="676" frameX="0" frameY="0" frameWidth="800" frameHeight="676" />
+</TextureAtlas>

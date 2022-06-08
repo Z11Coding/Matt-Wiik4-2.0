@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="womanless.png"><SubTexture name="rightpose right0000" x="0" y="0" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose right0001" x="1420" y="0" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose right0002" x="0" y="933" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose right0003" x="1420" y="933" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose right0004" x="0" y="1866" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose right0005" x="1420" y="1866" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+<SubTexture name="rightpose idle0000" x="0" y="2799" width="1420" height="933" frameX="0" frameY="0" frameWidth="1420" frameHeight="933" />
+</TextureAtlas>

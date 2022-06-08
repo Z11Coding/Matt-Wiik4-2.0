@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="tmatt.png"><SubTexture name="tmatt death0000" x="0" y="0" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt down0000" x="3140" y="0" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt down0001" x="6280" y="0" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0000" x="9420" y="0" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0001" x="0" y="3204" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0002" x="3140" y="3204" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0003" x="6280" y="3204" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0004" x="9420" y="3204" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0005" x="0" y="6408" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0006" x="3140" y="6408" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt idle0007" x="6280" y="6408" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt left0000" x="9420" y="6408" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt left0001" x="0" y="9612" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt left0002" x="3140" y="9612" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt right0000" x="6280" y="9612" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt up0000" x="9420" y="9612" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+<SubTexture name="tmatt right0001" x="0" y="12816" width="3140" height="3204" frameX="0" frameY="0" frameWidth="3140" frameHeight="3204" />
+</TextureAtlas>

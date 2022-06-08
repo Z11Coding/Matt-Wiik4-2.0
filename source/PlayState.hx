@@ -270,6 +270,9 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+	//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	public var bfkilledcheck = false;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -333,14 +336,14 @@ class PlayState extends MusicBeatState
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
-		if (isStoryMode)
+		/*if (isStoryMode)
 		{
 			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
 		}
 		else
 		{
 			detailsText = "Freeplay";
-		}
+		}*/
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
@@ -1160,7 +1163,7 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 
 				default:
-					startCountdown();
+					startDialogue(dialogueJson);
 			}
 			seenCutscene = true;
 		}
@@ -2307,6 +2310,11 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
+		if (health <= 0)
+		{
+			health = 0;
+		}
+
 		if(ratingName == '?') {
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 		} else {
@@ -2632,7 +2640,7 @@ class PlayState extends MusicBeatState
 
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
 	function doDeathCheck(?skipHealthCheck:Bool = false) {
-		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
+		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead && bfkilledcheck)
 		{
 			var ret:Dynamic = callOnLuas('onGameOver', []);
 			if(ret != FunkinLua.Function_Stop) {
@@ -3732,11 +3740,14 @@ class PlayState extends MusicBeatState
 		});
 		combo = 0;
 
+		bfkilledcheck = true;
+
 		health -= daNote.missHealth * healthLoss;
 		if(instakillOnMiss)
 		{
 			vocals.volume = 0;
 			doDeathCheck(true);
+			bfkilledcheck = true;
 		}
 
 		//For testing purposes
@@ -3767,6 +3778,7 @@ class PlayState extends MusicBeatState
 
 	function noteMissPress(direction:Int = 1):Void //You pressed a key when there was no notes to press for this key
 	{
+		bfkilledcheck = true;
 		if (!boyfriend.stunned)
 		{
 			health -= 0.05 * healthLoss;
@@ -3774,6 +3786,7 @@ class PlayState extends MusicBeatState
 			{
 				vocals.volume = 0;
 				doDeathCheck(true);
+				bfkilledcheck = true;
 			}
 
 			if(ClientPrefs.ghostTapping) return;
@@ -3861,6 +3874,24 @@ class PlayState extends MusicBeatState
 			notes.remove(note, true);
 			note.destroy();
 		}
+
+		var curSection:Int = Math.floor(curStep / 16);
+		if (dad.curCharacter == 'sickomode' || SONG.notes[curSection].altAnim || note.noteType == 'Alt Animation')
+		{
+			if (note.isSustainNote)
+			{
+				health -= 0.0115;
+			} else {
+				//health -= 0.04;
+				health -= 0.0375;	
+			}	
+			camGame.shake(0.005, 0.2);
+			camHUD.shake(0.005, 0.2);
+			if(boyfriend.animation.getByName('block') != null) {
+				boyfriend.playAnim('block', true);
+				boyfriend.specialAnim = true;
+			}
+		}
 	}
 
 	function goodNoteHit(note:Note):Void
@@ -3940,7 +3971,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 			}
-
+			bfkilledcheck = false;
 			if(cpuControlled) {
 				var time:Float = 0.15;
 				if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {

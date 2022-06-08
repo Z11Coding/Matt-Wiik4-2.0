@@ -1,0 +1,10 @@
+{
+	"idle_anim": "rejected menu",
+	"image": "rejected",
+	"position": [
+		510,
+		265
+	],
+	"scale": 0.6,
+	"confirm_anim": "M Dad Idle"
+}

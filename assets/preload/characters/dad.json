@@ -118,6 +118,17 @@
 				59
 			],
 			"name": "Dad Sing Note UP"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				140,
+				-100
+			],
+			"anim": "hey",
+			"fps": 24,
+			"name": "WhatYouKnowAboutRollingDownInTheDeep",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -128,6 +139,9 @@
 	],
 	"healthicon": "dad",
 	"flip_x": false,
+	"hpdrain": false,
+	"screenshake": false,
+	"noteskin": "NOTE_assets",
 	"healthbar_colors": [
 		175,
 		102,
