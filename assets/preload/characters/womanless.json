@@ -1,30 +1,30 @@
 {
 	"animations": [
 		{
+			"loop": true,
 			"offsets": [
 				2,
 				0
 			],
-			"indices": [],
-			"fps": 12,
 			"anim": "idle-loop",
-			"loop": true,
-			"name": "rightpose right"
+			"fps": 12,
+			"name": "rightpose right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"indices": [],
-			"fps": 12,
 			"anim": "idle",
-			"loop": false,
-			"name": "rightpose right"
+			"fps": 12,
+			"name": "rightpose right",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/womanless",
+	"image": "matt_chars/womanless",
 	"position": [
 		-300,
 		-200

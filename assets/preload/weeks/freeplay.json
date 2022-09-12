@@ -3,18 +3,14 @@
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "tutorial",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"practice-round",
@@ -179,7 +175,34 @@
 			]
 		],
 		[
+			"Purgatory",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Champion",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
 			"Fencing",
+			"matt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Parry",
 			"matt",
 			[
 				255,
@@ -206,34 +229,7 @@
 			]
 		],
 		[
-			"final-exam",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"power-surge",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"walmart",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"headlock",
+			"tko",
 			"matt",
 			[
 				255,
@@ -242,8 +238,71 @@
 			]
 		],
 		[
+			"king-hit-fefe",
+			"mart",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"walmart",
+			"mart",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"power-surge",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"en-garde",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"swordfight",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"combatold",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"final-showdown",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
 			"talentless-god",
-			"dad",
+			"",
 			[
 				146,
 				113,
@@ -251,24 +310,19 @@
 			]
 		],
 		[
-			"parry",
-			"dad",
+			"headlock",
+			"kysmatt",
 			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"resort",
-			"dad",
-			[
-				146,
-				113,
-				253
+				255,
+				106,
+				0
 			]
 		]
 	],
-	"hideStoryMode": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"weekName": "freeplay"
 }

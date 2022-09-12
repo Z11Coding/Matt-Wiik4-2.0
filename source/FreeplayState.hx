@@ -420,7 +420,14 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
+		if (songs[curSelected].songName == 'headlock')
+			diffText.text = 'PERSONAL';
+		else if (songs[curSelected].songName.toLowerCase() == 'purgatory')
+			diffText.text = 'PURGATORY';
+		else if (songs[curSelected].songName.toLowerCase() == 'king-hit-fefe')
+			diffText.text = 'FEFE';
+		else
+			diffText.text = CoolUtil.difficultyString().toUpperCase();
 		positionHighscore();
 	}
 

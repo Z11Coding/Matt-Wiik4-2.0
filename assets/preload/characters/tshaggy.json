@@ -1,70 +1,92 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
-				2,
+				3,
 				1
 			],
-			"anim": "idle-loop",
-			"fps": 18,
-			"name": "tshaggy idle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				2,
-				0
-			],
-			"anim": "idle",
-			"fps": 18,
-			"name": "tshaggy idle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				2,
-				0
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "tshaggy up",
-			"indices": []
-		},
-		{
 			"loop": true,
+			"fps": 18,
+			"anim": "idle-loop",
+			"indices": [],
+			"name": "tshaggy idle"
+		},
+		{
 			"offsets": [
 				2,
 				0
 			],
+			"loop": false,
+			"fps": 18,
+			"anim": "idle",
+			"indices": [],
+			"name": "tshaggy idle"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "tshaggy up"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"loop": true,
+			"fps": 24,
 			"anim": "singUP-loop",
-			"fps": 24,
-			"name": "tshaggy up",
-			"indices": []
+			"indices": [],
+			"name": "tshaggy up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "tshaggy down",
-			"indices": []
+			"indices": [],
+			"name": "tshaggy down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
+			"indices": [],
+			"name": "tshaggy left"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"loop": false,
 			"fps": 24,
-			"name": "tshaggy left",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "tshaggy right"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT-loop",
+			"indices": [],
+			"name": "tshaggy left"
 		},
 		{
 			"loop": false,
@@ -72,36 +94,14 @@
 				2,
 				0
 			],
-			"anim": "singRIGHT",
+			"anim": "singRIGHT-loop",
 			"fps": 24,
 			"name": "tshaggy right",
 			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				2,
-				0
-			],
-			"anim": "singLEFT-loop",
-			"fps": 24,
-			"name": "tshaggy left",
-			"indices": []
-		},
-		{
-			"offsets": [
-				2,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT-loop",
-			"loop": false,
-			"name": "tshaggy right"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/tshaggy",
+	"image": "matt_chars/tshaggy",
 	"position": [
 		50,
 		150

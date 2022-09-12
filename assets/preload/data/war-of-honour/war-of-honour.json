@@ -3307,6 +3307,56 @@
 				"bpm": 135
 			},
 			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 135,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 135,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 135
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 135
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 135
+			},
+			{
 				"gfSection": false,
 				"lengthInSteps": 16,
 				"altAnim": false,
@@ -3328,11 +3378,14 @@
 			}
 		],
 		"player2": "matt4",
-		"player3": "gf",
+		"gfVersion": "gf",
+		"events": [],
+		"player3": null,
 		"song": "War-Of-Honour",
-		"sections": 1,
 		"validScore": true,
+		"sections": 1,
 		"needsVoices": true,
+		"stage": "wiik4",
 		"speed": 2.5,
 		"bpm": 135
 	}

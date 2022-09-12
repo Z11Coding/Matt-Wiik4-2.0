@@ -7445,44 +7445,64 @@
 				"bpm": 180
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 180,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 180
 			},
 			{
 				"gfSection": false,
@@ -7495,10 +7515,12 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "gf",
+		"gfVersion": "gf",
+		"events": [],
+		"player3": null,
 		"song": "forgiveness",
-		"stage": "stage",
 		"needsVoices": true,
+		"stage": "wiik4",
 		"sections": 0,
 		"validScore": true,
 		"speed": 2.4,

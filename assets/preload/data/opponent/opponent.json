@@ -13293,14 +13293,44 @@
 				"bpm": 190
 			},
 			{
-				"gfSection": false,
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
 				"bpm": 190,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 190,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 190
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 190
 			},
 			{
 				"gfSection": false,
@@ -13314,11 +13344,14 @@
 			}
 		],
 		"player2": "matt4",
-		"player3": "gf",
+		"gfVersion": "gf",
+		"events": [],
+		"player3": null,
 		"song": "opponent",
-		"needsVoices": true,
 		"validScore": true,
+		"needsVoices": true,
 		"sections": 0,
+		"stage": "wiik4",
 		"bpm": 190,
 		"speed": 3
 	}

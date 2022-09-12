@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "smalm idle"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "smalm up"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "smalm down"
+		},
+		{
+			"offsets": [
+				4,
+				2
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "smalm left"
+		},
+		{
+			"offsets": [
+				2,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "smalm right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/smalm",
+	"position": [
+		250,
+		360
+	],
+	"healthicon": "dad",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		2,
+		-150
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2
+}

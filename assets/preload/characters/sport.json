@@ -1,63 +1,63 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				7,
 				1
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 18,
-			"name": "sport up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "sport up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				11,
 				-2
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 18,
-			"name": "sport left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "sport left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				13,
 				-4
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 18,
-			"name": "sport down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "sport down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				3,
 				3
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 18,
-			"name": "sport right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "sport right"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"indices": [],
-			"fps": 12,
 			"anim": "idle",
-			"loop": false,
-			"name": "sport idle"
+			"fps": 12,
+			"name": "sport idle",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/sport",
+	"image": "matt_chars/sport",
 	"position": [
 		50,
 		60

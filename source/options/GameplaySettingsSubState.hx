@@ -137,6 +137,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		addOption(option);
 
+		var option:Option = new Option('Health Drain',
+			'If unchecked, turns off the health drain.',
+			'drain',
+			'bool',
+			true);
+		addOption(option);
+
 		super();
 	}
 }

@@ -108,6 +108,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
+		var option:Option = new Option('Shaders',
+			'If unchecked, turns off the chromatic abberation shader.',
+			'shaders',
+			'bool',
+			true);
+		addOption(option);
+
 		super();
 	}
 

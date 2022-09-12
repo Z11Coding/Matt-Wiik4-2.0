@@ -38,6 +38,10 @@ class CoolUtil
 		{
 			fileSuffix = '';
 		}
+		if (fileSuffix == '' || fileSuffix == null || fileSuffix == 'null')
+		{
+			fileSuffix = '';
+		}
 		return Paths.formatToSongPath(fileSuffix);
 	}
 
