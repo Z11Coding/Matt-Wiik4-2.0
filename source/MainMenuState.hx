@@ -635,7 +635,11 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (overrideit)
+		{
 			curSelected = huhuh;
+			FlxG.mouse.x = optionShit[curSelected].getGraphicMidpoint().x;
+			FlxG.mouse.y = optionShit[curSelected].getGraphicMidpoint().y;
+		}
 
 		if (optionShit[curSelected] == 'tbutton')
 		{
