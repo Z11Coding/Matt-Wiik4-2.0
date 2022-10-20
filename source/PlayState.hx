@@ -56,6 +56,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import ShadersHandler;
+import STMetaFile.MetadataFile;
 #if sys
 import sys.FileSystem;
 #end
@@ -278,6 +279,12 @@ class PlayState extends MusicBeatState
 	var camfilters:Array<BitmapFilter> = [];
 	var ch = 2 / 1000;
 	public var shaderUpdates:Array<Float->Void> = [];
+	var metadata:MetadataFile;
+	var hasMetadataFile:Bool = false;
+	public var introStageBar:FlxSprite;
+	public var introStageText:FlxTypedGroup<FlxText>;
+	public var introStageStuff:FlxTypedGroup<Dynamic>;
+	var Text:Array<String> = [];
 
 	override public function create()
 	{
@@ -342,6 +349,17 @@ class PlayState extends MusicBeatState
 
 		camHUD.filtersEnabled = true;
 		camGame.filtersEnabled = true;
+
+		try
+		{
+			metadata = cast Json.parse(Assets.getText(Paths.json(SONG.song.toLowerCase() + '/meta')));
+			trace(Assets.getText(Paths.json(SONG.song.toLowerCase() + '/meta')));
+			trace(metadata);
+			hasMetadataFile = true;
+			trace("Found metadata for " + SONG.song.toLowerCase());
+		} catch(e) {
+			trace("No metadata for " + SONG.song.toLowerCase());
+		}
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -1072,6 +1090,68 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
+		introStageText = new FlxTypedGroup<FlxText>();
+
+		var songTxt:FlxText = new FlxText(0, 1280/3, FlxG.width - 800, "BOTPLAY", 32);
+		songTxt.setFormat(Paths.font("FOT-RodinWanpaku Pro EB.otf"), 32, FlxColor.ORANGE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt.scrollFactor.set();
+		songTxt.screenCenter(X);
+		songTxt.borderSize = 1.25;
+		introStageText.insert(1, songTxt);
+
+		var stageTxt:FlxText = new FlxText(songTxt.x, songTxt.y-100, FlxG.width - 800, "BOTPLAY", 32);
+		stageTxt.setFormat(Paths.font("FOT-RodinWanpaku Pro EB.otf"), 32, FlxColor.ORANGE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		stageTxt.scrollFactor.set();
+		stageTxt.borderSize = 1.25;
+		introStageText.insert(0, stageTxt);
+
+		var artistTxt:FlxText = new FlxText(stageTxt.x, stageTxt.y-100, FlxG.width - 800, "BOTPLAY", 32);
+		artistTxt.setFormat(Paths.font("FOT-RodinWanpaku Pro EB.otf"), 32, FlxColor.ORANGE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		artistTxt.scrollFactor.set();
+		artistTxt.borderSize = 1.25;
+		introStageText.insert(0, artistTxt);
+
+		var diffTxt:FlxText = new FlxText(artistTxt.x, artistTxt.y-100, FlxG.width - 800, "BOTPLAY", 32);
+		diffTxt.setFormat(Paths.font("FOT-RodinWanpaku Pro EB.otf"), 32, FlxColor.ORANGE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		diffTxt.scrollFactor.set();
+		diffTxt.borderSize = 1.25;
+		introStageText.insert(0, diffTxt);
+
+		if (hasMetadataFile)
+		{
+			Text = [metadata.song.name, metadata.song.stage, metadata.song.artist, metadata.song.diff];
+		}
+		else
+		{
+			Text = [curSong, curStage, '???', storyDifficultyText];
+		}
+
+		introStageStuff = new FlxTypedGroup<Dynamic>();
+		add(introStageStuff);
+
+		var daText:Array<FlxText> = [songTxt, stageTxt, artistTxt, diffTxt];
+		if (hasMetadataFile)
+		{
+			songTxt.text = metadata.song.name;
+			stageTxt.text = metadata.song.stage;
+			artistTxt.text = metadata.song.artist;
+			diffTxt.text = metadata.song.diff;
+		}
+
+		for (i in 0...Text.length)
+		{
+			introStageBar = new FlxSprite(daText[i].x, daText[i].y - 25).loadGraphic(Paths.image('WiiBar'));
+			introStageBar.scale.x = 2;
+			introStageBar.scale.y = 3;
+			introStageBar.scrollFactor.set();
+			introStageBar.updateHitbox();
+			introStageBar.screenCenter(X);
+			introStageBar.ID = i;
+			introStageBar.scrollFactor.set(0, 0);
+			introStageStuff.insert(0, introStageBar);
+			introStageStuff.insert(1, introStageText);
+		}
+		introStageStuff.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];

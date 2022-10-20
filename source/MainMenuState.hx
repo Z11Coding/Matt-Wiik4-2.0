@@ -407,14 +407,12 @@ class MainMenuState extends MusicBeatState
 			if (controls.UI_UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				Application.current.window.warpMouse(700, 700);
 				changeItem(-1, false);
 			}
 
 			if (controls.UI_DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				Application.current.window.warpMouse(700, 700);
 				changeItem(1, false);
 			}
 
@@ -435,7 +433,6 @@ class MainMenuState extends MusicBeatState
 				|| freeplay.isPressed 
 				|| options.isPressed)
 			{
-				Application.current.window.mouseLock = true;
 				if (optionShit[curSelected] == 'donate')
 				{
 					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
@@ -632,13 +629,14 @@ class MainMenuState extends MusicBeatState
 				curSelected = 0;
 			if (curSelected < 0)
 				curSelected = optionShit.length - 1;
+			FlxG.mouse.visible = false;
+			FlxG.mouse.enabled = false;
 		}
 
 		if (overrideit)
 		{
 			curSelected = huhuh;
-			FlxG.mouse.x = optionShit[curSelected].getGraphicMidpoint().x;
-			FlxG.mouse.y = optionShit[curSelected].getGraphicMidpoint().y;
+			FlxG.mouse.enabled = true;
 		}
 
 		if (optionShit[curSelected] == 'tbutton')
