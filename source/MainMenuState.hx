@@ -332,6 +332,12 @@ class MainMenuState extends MusicBeatState
 	}
 	#end
 
+	override function closeSubState() {
+		changeItem();
+		persistentUpdate = true;
+		super.closeSubState();
+	}
+
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
@@ -353,6 +359,7 @@ class MainMenuState extends MusicBeatState
 		wiiCursor.y = FlxG.mouse.y;
 
 		var cToW = cursorOWidth * 1.3;
+		var ctrl = FlxG.keys.justPressed.CONTROL;
 
 		cursorSize += (cToW - cursorSize) / 3;
 		wiiCursor.setGraphicSize(Std.int(cursorSize));
@@ -421,6 +428,12 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
+			}
+
+			if(ctrl)
+			{
+				persistentUpdate = false;
+				openSubState(new GameplayChangersSubstate());
 			}
 
 			if (controls.ACCEPT 
@@ -549,7 +562,7 @@ class MainMenuState extends MusicBeatState
 								PlayState.SONG = Song.loadFromJson('practice-round', 'practice-round');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
+								PlayState.storyDifficulty = 0;
 								PlayState.storyPlaylist = ['practice-round', 'bold-training', 'resort', 'final-exam'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
@@ -558,7 +571,7 @@ class MainMenuState extends MusicBeatState
 								PlayState.SONG = Song.loadFromJson('light-it-up', 'light-it-up');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
+								PlayState.storyDifficulty = 0;
 								PlayState.storyPlaylist = ['light-it-up', 'ruckus', 'target-practice'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
@@ -567,7 +580,7 @@ class MainMenuState extends MusicBeatState
 								PlayState.SONG = Song.loadFromJson('sporting', 'sporting');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
+								PlayState.storyDifficulty = 0;
 								PlayState.storyPlaylist = ['sporting', 'boxing-match'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
@@ -576,26 +589,26 @@ class MainMenuState extends MusicBeatState
 								PlayState.SONG = Song.loadFromJson('fisticuffs', 'fisticuffs');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
+								PlayState.storyDifficulty = 0;
 								PlayState.storyPlaylist = ['fisticuffs', 'wind-up', 'deathmatch', 'king-hit'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
 								LoadingState.loadAndSwitchState(new PlayState(), true);
 							case '4button':
-								PlayState.SONG = Song.loadFromJson('war-of-honour', 'war-of-honour');
+								PlayState.SONG = Song.loadFromJson('opponent', 'opponent');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
-								PlayState.storyPlaylist = ['war-of-honour', 'opponent', 'combat', 'endless-battle', 'forgiveness'];
+								PlayState.storyDifficulty = 0;
+								PlayState.storyPlaylist = ['opponent', 'combat', 'conflict', 'endless-battle', 'forgiveness'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
 								LoadingState.loadAndSwitchState(new PlayState(), true);
 							case '5button':
-								PlayState.SONG = Song.loadFromJson('fencing', 'fencing');
+								PlayState.SONG = Song.loadFromJson('rivalry', 'rivalry');
 								PlayState.isStoryMode = true;
 								PlayState.trueStory = true;
-								PlayState.storyDifficulty = 1;
-								PlayState.storyPlaylist = ['fencing', 'parry', 'sword-up', 'strike'];
+								PlayState.storyDifficulty = 0;
+								PlayState.storyPlaylist = ['rivalry', 'parry', 'starlight', 'swordsman'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
 								LoadingState.loadAndSwitchState(new PlayState(), true);

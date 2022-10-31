@@ -1,0 +1,9 @@
+{
+	"directory": "wiik",
+	"defaultZoom": 0.6,
+	"isPixelStage": false,
+
+	"boyfriend": [1100, 220],
+	"girlfriend": [700, 290],
+	"opponent": [300, 500]
+}

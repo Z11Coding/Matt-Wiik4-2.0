@@ -8365,16 +8365,57 @@
 				"bpm": 200,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 200,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 200,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 200,
+				"changeBPM": false,
+				"mustHitSection": true
 			}
 		],
-		"player2": "matt4angryfastswing",
-		"events": [],
+		"player2": "matt4",
+		"events": [
+			[
+				73200,
+				[
+					[
+						"Change Character",
+						"1",
+						"matt4angryfastswing"
+					]
+				]
+			]
+		],
 		"player3": "gf",
 		"song": "Combat",
 		"stage": "wiik4",
 		"validScore": true,
 		"needsVoices": true,
 		"bpm": 200,
-		"speed": 3.4
+		"speed": 3.5
 	}
 }

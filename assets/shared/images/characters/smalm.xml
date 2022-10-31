@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="smalm.png"><SubTexture name="smalm adown0000" x="0" y="0" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm aleft0000" x="484" y="0" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm aright0000" x="968" y="0" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm aup0000" x="0" y="535" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm down0000" x="484" y="535" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm idle0000" x="968" y="535" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm idle0001" x="0" y="1070" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm left0000" x="484" y="1070" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm right0000" x="968" y="1070" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+<SubTexture name="smalm up0000" x="0" y="1605" width="484" height="535" frameX="0" frameY="0" frameWidth="484" frameHeight="535" />
+</TextureAtlas>

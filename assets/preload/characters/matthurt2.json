@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				12,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 18,
-			"name": "Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-67,
 				-1
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				39,
 				-52
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				53,
 				-19
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				95,
 				-43
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				60,
 				-20
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "AltUp",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "AltUp"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				170,
 				-60
 			],
-			"anim": "singRIGHT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "AltRight",
-			"indices": []
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "AltRight"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				290,
 				-20
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "AltLeft",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "AltLeft"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				160,
 				-30
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "AltDown",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "AltDown"
 		}
 	],
 	"no_antialiasing": false,
@@ -106,7 +106,7 @@
 		0,
 		330
 	],
-	"healthicon": "matt",
+	"healthicon": "matthurt",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,

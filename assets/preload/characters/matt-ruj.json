@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "matt idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				40,
+				-40
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "matt left note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-90,
+				-25
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "matt down note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-44,
+				15
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "matt up note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				-25
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "matt right note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				40,
+				-40
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "matt left note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-90,
+				-26
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "matt down note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				14
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "matt up note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-51,
+				-25
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "matt right note",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "matt_chars/matt_assets",
+	"position": [
+		140,
+		340
+	],
+	"healthicon": "matt",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		139,
+		0
+	],
+	"camera_position": [
+		150,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

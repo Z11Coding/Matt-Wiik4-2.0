@@ -1,112 +1,112 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				12,
 				-2
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 18,
-			"name": "MATT NORMAL IDLE",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "MATT NORMAL IDLE"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				37,
-				3
+				38,
+				4
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "MATT NORMAL UP",
-			"indices": []
+			"indices": [],
+			"name": "MATT NORMAL UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				22,
-				-44
+				23,
+				-45
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "MATT NORMAL DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "MATT NORMAL DOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				125,
-				-18
+				-20
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "MATT NORMAL LEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "MATT NORMAL LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				13,
 				-21
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "MATT NORMAL RIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "MATT NORMAL RIGHT"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				65,
 				25
 			],
-			"loop": false,
-			"fps": 48,
 			"anim": "singUP-alt",
-			"indices": [],
-			"name": "MATT ALT UP"
+			"fps": 48,
+			"name": "MATT ALT UP",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				143,
 				-17
 			],
-			"loop": false,
-			"fps": 48,
 			"anim": "singRIGHT-alt",
-			"indices": [],
-			"name": "MATT ALT RIGHT"
+			"fps": 48,
+			"name": "MATT ALT RIGHT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				256,
 				-61
 			],
-			"loop": false,
-			"fps": 48,
 			"anim": "singDOWN-alt",
-			"indices": [],
-			"name": "MATT ALT DOWN"
+			"fps": 48,
+			"name": "MATT ALT DOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				208,
 				-22
 			],
-			"loop": false,
-			"fps": 48,
 			"anim": "singLEFT-alt",
-			"indices": [],
-			"name": "MATT ALT LEFT"
+			"fps": 48,
+			"name": "MATT ALT LEFT",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "matt_chars/wiik5mattangry",
 	"position": [
 		50,
-		260
+		350
 	],
-	"healthicon": "matt",
+	"healthicon": "matthurt",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,

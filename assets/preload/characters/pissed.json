@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"loop": false,
-			"fps": 18,
 			"anim": "idle",
-			"indices": [],
-			"name": "pissed idle"
+			"fps": 18,
+			"name": "pissed idle",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				10,
 				-4
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "pissed up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "pissed up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				3,
 				-3
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "pissed down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pissed down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				22,
 				-3
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "pissed left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pissed left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				2,
 				2
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "pissed right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pissed right"
 		}
 	],
 	"no_antialiasing": false,
@@ -62,7 +62,7 @@
 		-100,
 		160
 	],
-	"healthicon": "madmatt",
+	"healthicon": "kysmatt",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,

@@ -82,6 +82,22 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 
+		var option:Option = new Option('Health Drain',
+			'If unchecked, turns off the health drain.',
+			'drain',
+			'bool',
+			true);
+		addOption(option);
+
+		var option:Option = new Option('Input System', "The input system you wish to use.", 'inputSystem', 'string', "Native", [
+			"Native", 
+			"Kade Engine", 
+			"ZoroForce EK", 
+			"Psych (0.6.3)", 
+			"Forever Engine"
+		]);
+		addOption(option);
+
 		var option:Option = new Option('Rating Offset',
 			'Changes how late/early you have to hit for a "Sick!"\nHigher values mean you have to hit later.',
 			'ratingOffset',
@@ -135,13 +151,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.minValue = 2;
 		option.maxValue = 10;
 		option.changeValue = 0.1;
-		addOption(option);
-
-		var option:Option = new Option('Health Drain',
-			'If unchecked, turns off the health drain.',
-			'drain',
-			'bool',
-			true);
 		addOption(option);
 
 		super();

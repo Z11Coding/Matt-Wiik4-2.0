@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Psych Engine" file="PsychEngine" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.7" company="ShadowMario" />
+	<app title="Wiik 4 Wiimastered" file="Matt Remastered" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.7" company="ShadowMario" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -53,10 +53,6 @@
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
-	<section if="TITLE_SCREEN_EASTER_EGG">
-		<assets path="assets/secrets" rename="assets" exclude="*.ogg" if="web"/>
-		<assets path="assets/secrets" rename="assets" exclude="*.mp3"  unless="web"/>
-	</section>
 
 	<!-- DONT ENABLE THIS -->
 	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
@@ -69,21 +65,21 @@
 	<section if="PRELOAD_ALL">
 		<library name="songs"         preload="true" />
 		<library name="shared"        preload="true" />
-		<library name="week2"         preload="true" />
-		<library name="week3"         preload="true" />
-		<library name="week4"         preload="true" />
-		<library name="week5"         preload="true" />
-		<library name="week6"         preload="true" />
+		<library name="betrayal"      preload="true" />
+		<library name="wiik"          preload="true" />
+		<library name="wiik5"         preload="true" />
+		<library name="wiik6"         preload="true" />
+		<library name="wiik7"         preload="true" />
 	</section>
 	
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs"         preload="false" />
 		<library name="shared"        preload="false" />
-		<library name="week2"         preload="false" />
-		<library name="week3"         preload="false" />
-		<library name="week4"         preload="false" />
-		<library name="week5"         preload="false" />
-		<library name="week6"         preload="false" />
+		<library name="betrayal"      preload="false" />
+		<library name="wiik"          preload="false" />
+		<library name="wiik5"         preload="false" />
+		<library name="wiik6"         preload="false" />
+		<library name="wiik7"         preload="false" />
 	</section>
 	
 	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
@@ -93,16 +89,16 @@
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
-	<assets path="assets/week2"         library="week2"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week2"         library="week2"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week3"         library="week3"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week3"         library="week3"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week4"         library="week4"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week4"         library="week4"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week5"         library="week5"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week5"         library="week5"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week6"         library="week6"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
+	<assets path="assets/betrayal"      library="betrayal"      exclude="*.ogg" if="web"/>
+	<assets path="assets/betrayal"      library="betrayal"      exclude="*.mp3" unless="web"/>
+	<assets path="assets/wiik"         	library="wiik"	        exclude="*.ogg" if="web"/>
+	<assets path="assets/wiik"         	library="wiik"	        exclude="*.mp3" unless="web"/>
+	<assets path="assets/wiik5"         library="wiik5"         exclude="*.ogg" if="web"/>
+	<assets path="assets/wiik5"         library="wiik5"         exclude="*.mp3" unless="web"/>
+	<assets path="assets/wiik6"         library="wiik6"         exclude="*.ogg" if="web"/>
+	<assets path="assets/wiik6"         library="wiik6"         exclude="*.mp3" unless="web"/>
+	<assets path="assets/wiik7"         library="wiik7"         exclude="*.ogg" if="web"/>
+	<assets path="assets/wiik7"         library="wiik7"         exclude="*.mp3" unless="web"/>
 	
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
@@ -124,10 +120,12 @@
 	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />
 	<haxelib name="hscript" />
+	<define name="hscriptPos" />
 
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
+	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="discord_rpc" if="desktop"/>

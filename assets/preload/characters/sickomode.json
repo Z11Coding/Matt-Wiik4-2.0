@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 18,
-			"name": "pissed idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "pissed idle"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				10,
 				-4
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "pissed up"
+			"fps": 24,
+			"name": "pissed up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				3,
 				-3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "pissed down"
+			"fps": 24,
+			"name": "pissed down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				22,
 				-3
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "pissed left"
+			"fps": 24,
+			"name": "pissed left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				2
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "pissed right"
+			"fps": 24,
+			"name": "pissed right",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -62,10 +62,8 @@
 		670,
 		160
 	],
-	"healthicon": "madmatt",
+	"healthicon": "kysmatt",
 	"flip_x": true,
-	"hpdrain": true,	
-	"screenshake": true,
 	"healthbar_colors": [
 		255,
 		82,

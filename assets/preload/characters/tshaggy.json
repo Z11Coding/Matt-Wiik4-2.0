@@ -1,100 +1,56 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				3,
-				1
-			],
-			"loop": true,
-			"fps": 18,
-			"anim": "idle-loop",
-			"indices": [],
-			"name": "tshaggy idle"
-		},
-		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"loop": false,
-			"fps": 18,
 			"anim": "idle",
-			"indices": [],
-			"name": "tshaggy idle"
+			"fps": 18,
+			"name": "tshaggy idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "tshaggy up"
-		},
-		{
-			"offsets": [
-				2,
-				0
-			],
-			"loop": true,
 			"fps": 24,
-			"anim": "singUP-loop",
-			"indices": [],
-			"name": "tshaggy up"
+			"name": "tshaggy up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				2,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				2,
+				0
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "tshaggy down"
+			"fps": 24,
+			"name": "tshaggy down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "tshaggy left"
+			"fps": 24,
+			"name": "tshaggy left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				2,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "tshaggy right"
-		},
-		{
-			"offsets": [
-				2,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT-loop",
-			"indices": [],
-			"name": "tshaggy left"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				2,
-				0
-			],
-			"anim": "singRIGHT-loop",
 			"fps": 24,
 			"name": "tshaggy right",
 			"indices": []

@@ -130,15 +130,6 @@
 			]
 		],
 		[
-			"War of honour",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
 			"Opponent",
 			"mattsword",
 			[
@@ -149,6 +140,15 @@
 		],
 		[
 			"Combat",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Conflict",
 			"matthurt",
 			[
 				255,
@@ -175,26 +175,8 @@
 			]
 		],
 		[
-			"Purgatory",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"Champion",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
 			"Fencing",
-			"matt",
+			"mattsword",
 			[
 				255,
 				106,
@@ -203,7 +185,7 @@
 		],
 		[
 			"Parry",
-			"matt",
+			"mattsword",
 			[
 				255,
 				106,
@@ -211,8 +193,8 @@
 			]
 		],
 		[
-			"Sword-Up",
-			"matt",
+			"Starlight",
+			"mattsword",
 			[
 				255,
 				106,
@@ -220,44 +202,8 @@
 			]
 		],
 		[
-			"Strike",
-			"matt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"tko",
-			"matt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"king-hit-fefe",
-			"mart",
-			[
-				255,
-				255,
-				255
-			]
-		],
-		[
-			"walmart",
-			"mart",
-			[
-				255,
-				255,
-				255
-			]
-		],
-		[
-			"power-surge",
-			"matthurt",
+			"Swordsman",
+			"mattsword",
 			[
 				255,
 				106,
@@ -301,6 +247,150 @@
 			]
 		],
 		[
+			"tko",
+			"matt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"king-hit-fefe",
+			"mart",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"walmart",
+			"mart",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"Purgatory",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Champion",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Combat-alt",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Rucjus",
+			"matt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"unwind",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"power-surge",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Sword-Up",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Strike",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"War of honour",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"betrayal",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"antagonist",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"rivalry",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"pbrfa",
+			"matthurt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"talentless-god",
 			"",
 			[
@@ -310,12 +400,111 @@
 			]
 		],
 		[
-			"headlock",
-			"kysmatt",
+			"competition",
+			"sickomode",
+			[
+				100,
+				100,
+				100
+			]
+		],
+		[
+			"disqualified",
+			"sickomode",
+			[
+				100,
+				100,
+				100
+			]
+		],
+		[
+			"knockout (dont play)",
+			"madmatt",
 			[
 				255,
 				106,
 				0
+			]
+		],
+		[
+			"kendo",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"deflect",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"barrage",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"ultimate-battle",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"advance",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"rumble",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"allies",
+			"matt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"haven",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"headlock",
+			"kysmatt",
+			[
+				25,
+				25,
+				25
 			]
 		]
 	],
