@@ -24,6 +24,7 @@ import flixel.addons.display.FlxExtendedSprite;
 import flixel.addons.plugin.FlxMouseControl;
 import flixel.input.mouse.FlxMouse;
 import flixel.addons.effects.FlxTrail;
+import LoadingState.LoadingsState;
 
 using StringTools;
 
@@ -566,7 +567,11 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['practice-round', 'bold-training', 'resort', 'final-exam'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'tutorial';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case '1button':
 								PlayState.SONG = Song.loadFromJson('light-it-up', 'light-it-up');
 								PlayState.isStoryMode = true;
@@ -575,7 +580,11 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['light-it-up', 'ruckus', 'target-practice'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'week1';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case '2button':
 								PlayState.SONG = Song.loadFromJson('sporting', 'sporting');
 								PlayState.isStoryMode = true;
@@ -584,7 +593,11 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['sporting', 'boxing-match'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'week2';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case '3button':
 								PlayState.SONG = Song.loadFromJson('fisticuffs', 'fisticuffs');
 								PlayState.isStoryMode = true;
@@ -593,7 +606,11 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['fisticuffs', 'wind-up', 'deathmatch', 'king-hit'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'week3';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case '4button':
 								PlayState.SONG = Song.loadFromJson('opponent', 'opponent');
 								PlayState.isStoryMode = true;
@@ -602,7 +619,11 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['opponent', 'combat', 'conflict', 'endless-battle', 'forgiveness'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'week4';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case '5button':
 								PlayState.SONG = Song.loadFromJson('rivalry', 'rivalry');
 								PlayState.isStoryMode = true;
@@ -611,9 +632,16 @@ class MainMenuState extends MusicBeatState
 								PlayState.storyPlaylist = ['rivalry', 'parry', 'starlight', 'swordsman'];
 								PlayState.campaignScore = 0;
 								trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
-								LoadingState.loadAndSwitchState(new PlayState(), true);
+								LoadingsState.loadArt = 'week5';
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new PlayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case 'freeplay':
-								MusicBeatState.switchState(new FreeplayState());
+								openSubState(new LoadingsState());
+								FlxTransitionableState.skipNextTransIn = true;
+								var toSwitchToState = new FreeplayState();
+								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 							case 'options':
 								LoadingState.loadAndSwitchState(new options.OptionsState());
 						}

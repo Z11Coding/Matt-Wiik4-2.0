@@ -89,6 +89,8 @@
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
+	<assets path="assets/preload/images" library="images"       exclude="*.ogg" if="web"/>
+	<assets path="assets/preload/images" library="images"       exclude="*.mp3" unless="web"/>
 	<assets path="assets/betrayal"      library="betrayal"      exclude="*.ogg" if="web"/>
 	<assets path="assets/betrayal"      library="betrayal"      exclude="*.mp3" unless="web"/>
 	<assets path="assets/wiik"         	library="wiik"	        exclude="*.ogg" if="web"/>

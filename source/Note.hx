@@ -185,7 +185,7 @@ class Note extends FlxSprite
 	public var colorSwap:ColorSwap;
 	public var inEditor:Bool = false;
 	public var gfNote:Bool = false;
-	public var exNote:Bool = false;
+	public var ghostNote:Bool = false;
 
 	public var earlyHitMult:Float = 0.5;
 	public var formerPress:Bool = false;
@@ -286,18 +286,6 @@ class Note extends FlxSprite
 	private function set_noteType(value:String):String
 	{
 		noteSplashTexture = PlayState.SONG.splashSkin;
-		if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length)
-		{
-			/*colorSwap.hue = ClientPrefs.arrowHSV[
-				Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])
-			][0] / 360;
-			colorSwap.saturation = ClientPrefs.arrowHSV[
-				Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])
-			][1] / 100;
-			colorSwap.brightness = ClientPrefs.arrowHSV[
-				Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])
-			][2] / 100;*/
-		}
 
 		if (noteData > -1 && noteType != value)
 		{
@@ -343,6 +331,8 @@ class Note extends FlxSprite
 					hitCausesMiss = false;
 					hasNoteType = true;
 					lowPriority = false;
+				case 'Ghost Note':
+					ghostNote = true;
 				default:
 					hasNoteType = false;
 			}

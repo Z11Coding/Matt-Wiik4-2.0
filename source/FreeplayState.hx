@@ -18,6 +18,7 @@ import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
 import WeekData;
+import LoadingState.LoadingsState;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
@@ -243,6 +244,8 @@ class FreeplayState extends MusicBeatState
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
+		if(FlxG.sound.music == null)
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 		if (FlxG.sound.music.volume < 0.7)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -356,15 +359,6 @@ class FreeplayState extends MusicBeatState
 			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			/*#if MODS_ALLOWED
-			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-			#end
-				poop = songLowercase;
-				curDifficulty = 1;
-				trace('Couldnt find file');
-			}*/
 			trace(poop);
 
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
@@ -377,9 +371,17 @@ class FreeplayState extends MusicBeatState
 			}
 			
 			if (FlxG.keys.pressed.SHIFT){
-				LoadingState.loadAndSwitchState(new ChartingState());
+				openSubState(new LoadingsState());
+				FlxTransitionableState.skipNextTransIn = true;
+				var toSwitchToState = new ChartingState();
+				LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 			}else{
-				LoadingState.loadAndSwitchState(new PlayState());
+				if (songLowercase == 'headlock')
+					LoadingsState.loadArt = 'headlock';
+				openSubState(new LoadingsState());
+				FlxTransitionableState.skipNextTransIn = true;
+				var toSwitchToState = new PlayState();
+				LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 			}
 
 			FlxG.sound.music.volume = 0;
