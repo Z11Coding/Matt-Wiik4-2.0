@@ -1,0 +1,133 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 30,
+			"name": "pshaggy_idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				92
+			],
+			"anim": "snap",
+			"fps": 7,
+			"name": "pshaggy_snap",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				71
+			],
+			"anim": "snapped",
+			"fps": 28,
+			"name": "pshaggy_did_snap",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "back",
+			"fps": 28,
+			"name": "pshaggy_back",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "smile",
+			"fps": 7,
+			"name": "pshaggy_smile",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "stand",
+			"fps": 7,
+			"name": "pshaggy_stand",
+			"indices": []
+		},
+		{
+			"offsets": [
+				35,
+				16
+			],
+			"indices": [],
+			"fps": 18,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "pshaggy_left"
+		},
+		{
+			"offsets": [
+				200,
+				-110
+			],
+			"indices": [],
+			"fps": 18,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "pshaggy_down"
+		},
+		{
+			"offsets": [
+				119,
+				-8
+			],
+			"indices": [],
+			"fps": 18,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "pshaggy_right"
+		},
+		{
+			"offsets": [
+				114,
+				97
+			],
+			"indices": [],
+			"fps": 18,
+			"anim": "singUP",
+			"loop": false,
+			"name": "pshaggy_up0"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pshaggy",
+	"position": [
+		-650,
+		-300
+	],
+	"healthicon": "pshaggy",
+	"flip_x": false,
+	"healthbar_colors": [
+		75,
+		51,
+		114
+	],
+	"camera_position": [
+		350,
+		50
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

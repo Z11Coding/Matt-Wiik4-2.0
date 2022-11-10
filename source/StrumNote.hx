@@ -69,7 +69,7 @@ class StrumNote extends FlxExtendedSprite
 		{
 			switch(char)
 			{
-				case 'bf' | 'bf-alt' | 'bf-alt-god' | 'bfCool' | 'bfCooler' | 'bf-dark' | 'bf-dark' | 'bf-ebola' | 'bf-god' | 'bflol' | 'bfmii' | 'bf-qt' | 'bf-reanimated' | 'bf-speaker':
+				case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
 					skin = 'noteskins/bf';
 				case '':
 					skin = 'noteskins/normal';

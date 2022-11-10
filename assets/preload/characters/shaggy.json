@@ -1,0 +1,213 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				171,
+				-117
+			],
+			"loop": false,
+			"anim": "singLEFT",
+			"fps": 30,
+			"name": "shaggy_left",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-9,
+				-169
+			],
+			"loop": false,
+			"anim": "singDOWN",
+			"fps": 30,
+			"name": "shaggy_down",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-20,
+				27
+			],
+			"loop": false,
+			"anim": "singUP",
+			"fps": 30,
+			"name": "shaggy_up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-9,
+				-38
+			],
+			"loop": false,
+			"anim": "singRIGHT",
+			"fps": 30,
+			"name": "shaggy_right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "powerup",
+			"fps": 24,
+			"name": "shaggy_powerup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 30,
+			"name": "shaggy_idle",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 30,
+			"name": "shaggy_idle2",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				171,
+				-106
+			],
+			"anim": "singLEFT-alt",
+			"fps": 30,
+			"name": "shaggy_sleft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				-174
+			],
+			"anim": "singDOWN-alt",
+			"fps": 30,
+			"name": "shaggy_sdown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-8,
+				-24
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 30,
+			"name": "shaggy_sright",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-21,
+				35
+			],
+			"anim": "singUP-alt",
+			"fps": 30,
+			"name": "shaggy_sup",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24
+			]
+		},
+		{
+			"offsets": [
+				-12,
+				7
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "idle-alt",
+			"loop": false,
+			"name": "shaggy_super_idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/shaggy",
+	"position": [
+		-250,
+		-70
+	],
+	"healthicon": "shaggy",
+	"flip_x": false,
+	"healthbar_colors": [
+		51,
+		114,
+		74
+	],
+	"camera_position": [
+		-280,
+		50
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

@@ -1,8 +1,7 @@
 {
     "song": {
-        "name": "SONG NAME HERE",
-        "stage": "STAGE NAME HERE",
-        "artist": "SONG ARTIST NAME HERE",
-        "diff": "DIFFICULTY NAME HERE"
+        "name": "Fisticuffs",
+        "stage": "Boxing Room",
+        "artist": "Musician: MrZushi\nCharter: "
     }
 }

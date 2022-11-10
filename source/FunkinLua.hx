@@ -35,7 +35,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.system.FlxAssets.FlxShader;
 
 #if (!flash && sys)
-	import flixel.addons.display.FlxRuntimeShader;
+import flixel.addons.display.FlxRuntimeShader;
 #end
 
 #if sys
@@ -126,6 +126,7 @@ class FunkinLua {
 		set('songName', PlayState.SONG.song);
 		set('songPath', Paths.formatToSongPath(PlayState.SONG.song));
 		set('startedCountdown', false);
+		set('mania', PlayState.mania);
 		set('curStage', PlayState.SONG.stage);
 
 		set('isStoryMode', PlayState.isStoryMode);
@@ -173,7 +174,7 @@ class FunkinLua {
 		set('botPlay', PlayState.instance.cpuControlled);
 		set('practice', PlayState.instance.practiceMode);
 
-		for (i in 0...4) {
+		for (i in 0...PlayState.mania) {
 			set('defaultPlayerStrumX' + i, 0);
 			set('defaultPlayerStrumY' + i, 0);
 			set('defaultOpponentStrumX' + i, 0);
@@ -1151,7 +1152,7 @@ class FunkinLua {
 					onComplete: function(twn:FlxTween) {
 						PlayState.instance.callOnLuas('onTweenCompleted', [tag]);
 						PlayState.instance.modchartTweens.remove(tag);
-				 	}
+					}
 				}));
 			} else {
 				luaTrace('doTweenAlpha: Couldnt find object: ' + vars, false, false, FlxColor.RED);
@@ -1622,6 +1623,9 @@ class FunkinLua {
 				default:
 					PlayState.instance.boyfriendGroup.y = value;
 			}
+		});
+		Lua_helper.add_callback(lua, "changeMania", function(newValue:Int) {
+			PlayState.instance.changeMania(newValue);
 		});
 		Lua_helper.add_callback(lua, "cameraSetTarget", function(target:String) {
 			var isDad:Bool = false;

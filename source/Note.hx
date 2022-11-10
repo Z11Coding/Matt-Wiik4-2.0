@@ -185,6 +185,7 @@ class Note extends FlxSprite
 	public var colorSwap:ColorSwap;
 	public var inEditor:Bool = false;
 	public var gfNote:Bool = false;
+	public var exNote:Bool = false;
 	public var ghostNote:Bool = false;
 
 	public var earlyHitMult:Float = 0.5;
@@ -333,6 +334,8 @@ class Note extends FlxSprite
 					lowPriority = false;
 				case 'Ghost Note':
 					ghostNote = true;
+				case 'EX Note':
+					exNote = true;
 				default:
 					hasNoteType = false;
 			}
@@ -360,10 +363,8 @@ class Note extends FlxSprite
 		{
 			switch(char)
 			{
-				case 'bf' | 'bf-alt' | 'bf-alt-god' | 'bfCool' | 'bfCooler' | 'bf-dark' | 'bf-dark' | 'bf-ebola' | 'bf-god' | 'bflol' | 'bfmii' | 'bf-qt' | 'bf-reanimated' | 'bf-speaker':
+				case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
 					skin = 'noteskins/bf';
-				case 'bf-pixel-opponent' | 'senpai-angry' | 'senpai':
-					skin = 'noteskins/PIXEL_NOTE_assets';
 				case '':
 					skin = 'noteskins/normal';
 				case null:

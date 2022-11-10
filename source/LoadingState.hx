@@ -74,7 +74,7 @@ class LoadingsState extends MusicBeatSubstate
 		if (daArt != null)
 			loadingart = new FlxSprite(0, 0).loadGraphic(Paths.image('loading/' + daArt));
 		else
-			loadingart = new FlxSprite(0, 0).loadGraphic(Paths.image('loading/' + FlxG.random.int(0, 6) + 'a'));
+			loadingart = new FlxSprite(0, 0).loadGraphic(Paths.image('loading/' + FlxG.random.int(0, 12) + 'a'));
 		//loadingart.setGraphicSize(-1, FlxG.height);
 		loadingart.updateHitbox();
 		loadingart.alpha = 0.1;
@@ -105,8 +105,6 @@ class LoadingsState extends MusicBeatSubstate
 		}
 
 		var tip:FlxSprite = new FlxSprite(0, 590).loadGraphic(Paths.image('loading/extra/' + tipPrefix + '/' + FlxG.random.int(1, tipMax)));
-		if (FlxG.random.bool(0.5))
-			tip.loadGraphic(Paths.image('loading/extra/proTip/path/light'));
 		tip.screenCenter(XY);
 		tip.y += 299;
 		add(tip);
@@ -139,10 +137,6 @@ class LoadingsState extends MusicBeatSubstate
 	var t:Float = 0;
 	override function update(elapsed:Float)
 	{
-		t += elapsed; // for speed calculations
-
-		bg.x = -(w * t / 4) % w;
-		bg.y = -(h * t / 4) % h;
 		super.update(elapsed);
 		loadingart.alpha += elapsed;
 		blackscreen.alpha += elapsed;
@@ -167,10 +161,7 @@ class LoadingState extends MusicBeatState
 	var logo:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft = false;
-	var loadingart:FlxSprite;
 	public static var barProgression:Float = 0;
-	public static var loadingBarBG:FlxSprite;
-	public static var loadingBar:FlxBar;
 	//Thinking....
 	
 	function new(target:FlxState, stopMusic:Bool)

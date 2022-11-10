@@ -43,6 +43,7 @@ class MainMenuState extends MusicBeatState
 	var art4:FlxSprite;
 	var art5:FlxSprite;
 	var artother:FlxSprite;
+	var artsetting:FlxSprite;
 	var scoreText:FlxText;
 	public static var weekName:String;
 	
@@ -180,6 +181,13 @@ class MainMenuState extends MusicBeatState
 		artother.alpha = 1;
 		artother.setGraphicSize(Std.int(artother.width * 1.01));
 		add(artother);
+
+		artsetting = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/settings'));
+		artsetting.updateHitbox();
+		artsetting.antialiasing = true;
+		artsetting.alpha = 1;
+		artsetting.setGraphicSize(Std.int(artsetting.width * 1.01));
+		add(artsetting);
 
 		tbutton = new FlxExtendedSprite(-600, -300);
 		tbutton.frames = Paths.getSparrowAtlas('mainmenu/tbutton');
@@ -431,12 +439,6 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if(ctrl)
-			{
-				persistentUpdate = false;
-				openSubState(new GameplayChangersSubstate());
-			}
-
 			if (controls.ACCEPT 
 				|| tbutton.isPressed 
 				|| button1.isPressed 
@@ -571,7 +573,7 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case '1button':
 								PlayState.SONG = Song.loadFromJson('light-it-up', 'light-it-up');
 								PlayState.isStoryMode = true;
@@ -584,7 +586,7 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case '2button':
 								PlayState.SONG = Song.loadFromJson('sporting', 'sporting');
 								PlayState.isStoryMode = true;
@@ -597,7 +599,7 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case '3button':
 								PlayState.SONG = Song.loadFromJson('fisticuffs', 'fisticuffs');
 								PlayState.isStoryMode = true;
@@ -610,7 +612,7 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case '4button':
 								PlayState.SONG = Song.loadFromJson('opponent', 'opponent');
 								PlayState.isStoryMode = true;
@@ -623,7 +625,7 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case '5button':
 								PlayState.SONG = Song.loadFromJson('rivalry', 'rivalry');
 								PlayState.isStoryMode = true;
@@ -636,12 +638,12 @@ class MainMenuState extends MusicBeatState
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new PlayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case 'freeplay':
 								openSubState(new LoadingsState());
 								FlxTransitionableState.skipNextTransIn = true;
 								var toSwitchToState = new FreeplayState();
-								LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case 'options':
 								LoadingState.loadAndSwitchState(new options.OptionsState());
 						}
@@ -775,11 +777,13 @@ class MainMenuState extends MusicBeatState
 		{
 			options.animation.play('selected', true);
 			options.alpha = 1;
+			artsetting.alpha = 1;
 			weekName = '';
 		}
 		else
 		{
 			options.animation.play('idle', true);
+			artsetting.alpha = 0;
 			options.alpha = 0.5;
 		}
 		#if !switch
