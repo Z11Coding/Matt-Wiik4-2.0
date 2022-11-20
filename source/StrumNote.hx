@@ -23,15 +23,52 @@ class StrumNote extends FlxExtendedSprite
 	public var openNoteData:Int = 0;
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
+	public var sustainReduce:Bool = true;
 
 	public var player:Int;
 	public static var players:Int;
 	public var doAntialiasing:Bool = ClientPrefs.globalAntialiasing;
-	public var sustainReduce:Bool = true;
 
-	private var skinThing:Array<String> = ['static', 'pressed'];
+	public var animationArray:Array<String> = ['static', 'pressed', 'confirm'];
+	public var static_anim(default, set):String = "static";
+	public var pressed_anim(default, set):String = "pressed"; // in case you would use this on lua
+	// though, you shouldn't change it
+	public var confirm_anim(default, set):String = "static";
 
 	public var noteSkin:String = 'normal';
+
+	private function set_static_anim(value:String):String {
+		if (!PlayState.isPixelStage) {
+			animation.addByPrefix('static', value);
+			animationArray[0] = value;
+			if (animation.curAnim != null && animation.curAnim.name == 'static') {
+				playAnim('static');
+			}
+		}
+		return value;
+	}
+
+	private function set_pressed_anim(value:String):String {
+		if (!PlayState.isPixelStage) {
+			animation.addByPrefix('pressed', value);
+			animationArray[1] = value;
+			if (animation.curAnim != null && animation.curAnim.name == 'pressed') {
+				playAnim('pressed');
+			}
+		}
+		return value;
+	}
+
+	private function set_confirm_anim(value:String):String {
+		if (!PlayState.isPixelStage) {
+			animation.addByPrefix('confirm', value);
+			animationArray[2] = value;
+			if (animation.curAnim != null && animation.curAnim.name == 'confirm') {
+				playAnim('confirm');
+			}
+		}
+		return value;
+	}
 	
 	public var texture(default, set):String = null;
 	private function set_texture(value:String):String {
@@ -55,34 +92,34 @@ class StrumNote extends FlxExtendedSprite
 
 		players = player;
 
-		var stat:String =Note.keysShit.get(PlayState.mania).get('strumAnims')[leData];
-		var pres:String = Note.keysShit.get(PlayState.mania).get('letters')[leData];
-		skinThing[0] = stat;
-		skinThing[1] = pres;
+		animationArray[0] = Note.keysShit.get(PlayState.mania).get('strumAnims')[leData];
+		animationArray[1] = Note.keysShit.get(PlayState.mania).get('letters')[leData];
+		animationArray[2] = Note.keysShit.get(PlayState.mania).get('letters')[leData]; // jic
 		var skin:String;
 		skin = 'noteskins/normal';
 
 		doAntialiasing = ClientPrefs.globalAntialiasing;
 		
 		//if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
-		if (Note.ammo[PlayState.mania] < 9)
+		switch(char)
 		{
-			switch(char)
-			{
-				case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
-					skin = 'noteskins/bf';
-				case '':
-					skin = 'noteskins/normal';
-				case null:
-					skin = 'noteskins/normal';
-				default:
-					skin = 'noteskins/normal';
-			}
+			case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
+				skin = 'noteskins/bf';
+			case '':
+				skin = 'noteskins/normal';
+			case null:
+				skin = 'noteskins/normal';
+			default:
+				skin = 'noteskins/normal';
+		}
+		/*if (Note.ammo[PlayState.mania] < 9)
+		{
+			
 		}
 		else
 		{
 			skin = 'noteskins/normal';
-		}
+		}*/
 		if (inEditor)
 		{
 			skin = 'noteskins/normal'; 
@@ -97,10 +134,12 @@ class StrumNote extends FlxExtendedSprite
 		var lastAnim:String = null;
 		if(animation.curAnim != null) lastAnim = animation.curAnim.name;
 
+		var pxDV:Int = Note.pixelNotesDivisionValue;
+
 		if(PlayState.isPixelStage)
 			{
 				loadGraphic(Paths.image('pixelUI/' + texture));
-				width = width / 18;
+				width = width / Note.pixelNotesDivisionValue;
 				height = height / 5;
 				antialiasing = false;
 				loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
@@ -110,9 +149,9 @@ class StrumNote extends FlxExtendedSprite
 				updateHitbox();
 				antialiasing = false;
 				animation.add('static', [daFrames[noteData]]);
-				animation.add('pressed', [daFrames[noteData] + 18, daFrames[noteData] + 36], 12, false);
-				animation.add('confirm', [daFrames[noteData] + 54, daFrames[noteData] + 72], 24, false);
-				//i used calculator
+				animation.add('pressed', [daFrames[noteData] + pxDV, daFrames[noteData] + (pxDV * 2)], 12, false);
+				animation.add('confirm', [daFrames[noteData] + (pxDV * 3), daFrames[noteData] + (pxDV * 4)], 24, false);
+				//i used windows calculator
 			}
 		else
 			{
@@ -122,9 +161,9 @@ class StrumNote extends FlxExtendedSprite
 
 				setGraphicSize(Std.int(width * Note.scales[PlayState.mania]));
 		
-				animation.addByPrefix('static', 'arrow' + skinThing[0]);
-				animation.addByPrefix('pressed', skinThing[1] + ' press', 24, false);
-				animation.addByPrefix('confirm', skinThing[1] + ' confirm', 24, false);
+				animation.addByPrefix('static', 'arrow' + animationArray[0]);
+				animation.addByPrefix('pressed', animationArray[1] + ' press', 24, false);
+				animation.addByPrefix('confirm', animationArray[1] + ' confirm', 24, false);
 			}
 
 		updateHitbox();
@@ -137,6 +176,15 @@ class StrumNote extends FlxExtendedSprite
 
 	public function postAddedToGroup() {
 		playAnim('static');
+		/**
+		 * list of complicated math that occurs down below:
+		 * start by adding X value to strum
+		 * add extra X value accordng to Note.xtra
+		 * add 50 for centered strum
+		 * put the strums in the correct side
+		 * subtract X value for centered strum
+		**/
+
 		switch (PlayState.mania)
 		{
 			case 0 | 1 | 2: x += width * noteData;
@@ -178,13 +226,12 @@ class StrumNote extends FlxExtendedSprite
 			colorSwap.saturation = 0;
 			colorSwap.brightness = 0;
 		} else {
-			if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length)
+			if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length && Note.ammo[PlayState.mania] < 4)
 			{
-				/*colorSwap.hue = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(PlayState.mania).get('pixelAnimIndex')[noteData] % Note.ammo[PlayState.mania])][0] / 360;
+				colorSwap.hue = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(PlayState.mania).get('pixelAnimIndex')[noteData] % Note.ammo[PlayState.mania])][0] / 360;
 				colorSwap.saturation = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(PlayState.mania).get('pixelAnimIndex')[noteData] % Note.ammo[PlayState.mania])][1] / 100;
-				colorSwap.brightness = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(PlayState.mania).get('pixelAnimIndex')[noteData] % Note.ammo[PlayState.mania])][2] / 100;*/
+				colorSwap.brightness = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(PlayState.mania).get('pixelAnimIndex')[noteData] % Note.ammo[PlayState.mania])][2] / 100;
 			}
-
 			if(animation.curAnim.name == 'confirm' && !PlayState.isPixelStage) {
 				centerOrigin();
 			}

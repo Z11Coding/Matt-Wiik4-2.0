@@ -80,6 +80,11 @@ class Song
 				}
 			}
 		}
+		if (songJson.mania == null)
+		{
+			songJson.mania = Note.defaultMania;
+			trace("Song mania value is NULL, set to " + Note.defaultMania);
+		}
 	}
 
 	public function new(song, notes, bpm)

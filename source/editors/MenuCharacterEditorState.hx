@@ -242,7 +242,6 @@ class MenuCharacterEditorState extends MusicBeatState
 		char.scale.set(characterFile.scale, characterFile.scale);
 		char.updateHitbox();
 		char.animation.play('idle');
-
 		updateOffset();
 		
 		#if desktop

@@ -38,6 +38,7 @@ class LoadingsState extends MusicBeatSubstate
 	var bg:FlxTypedSpriteGroup<FlxSprite> = new FlxTypedSpriteGroup<FlxSprite>();
 	var w = 775;
 	var h = 550;	
+	var isSeeThrough:Bool = false;
 	override function create()
 	{
 		FlxG.camera.zoom = 0;
@@ -83,6 +84,15 @@ class LoadingsState extends MusicBeatSubstate
 		loadingart.antialiasing = true;
 		add(loadingart);
 
+		switch (loadArt)
+		{
+			case 'transparent':
+				daArt = null;
+				isSeeThrough = true;
+				loadingart.alpha = 0;
+				blackscreen.alpha = 0;
+		}
+
 		var loading = new FlxSprite().loadGraphic(Paths.image("loading/loading"));
         loading.scale.set(0.85, 0.85);
         loading.updateHitbox();
@@ -124,13 +134,6 @@ class LoadingsState extends MusicBeatSubstate
         loadingBarBG.screenCenter(X);
         loadingBarBG.setGraphicSize(Std.int(loadingBarBG.width * 1.2));
         add(loadingBarBG);
-
-		//trace('bruj 5');
-        loadingBar = new FlxBar(loadingBarBG.x + 4, loadingBarBG.y + 4, LEFT_TO_RIGHT, Std.int(loadingBarBG.width - 8), Std.int(loadingBarBG.height - 8), this,
-            'barProgression', 0, 1);
-        loadingBar.numDivisions = 100;
-        loadingBar.createFilledBar(FlxColor.ORANGE, FlxColor.PURPLE);
-        add(loadingBar);
 		super.create();
 	}
 
@@ -140,12 +143,11 @@ class LoadingsState extends MusicBeatSubstate
 		super.update(elapsed);
 		loadingart.alpha += elapsed;
 		blackscreen.alpha += elapsed;
-		if (instantAlpha)
+		if (instantAlpha && !isSeeThrough)
 		{
 			blackscreen.alpha = 1;
 			loadingart.alpha = 1;
 		}
-		barProgression = LoadingState.barProgression;
 	}
 
 }
@@ -269,9 +271,11 @@ class LoadingState extends MusicBeatState
 		var waitTime = 0.0;
 		if (waitForLoad)
 		{
-			FlxG.sound.music.fadeOut(1, 0);
 			waitTime = 1.6;
 		}
+
+		if (stopMusic)
+			FlxG.sound.music.fadeOut(1, 0);
 
 		FlxTransitionableState.skipNextTransIn = true;
 		new FlxTimer().start(waitTime, function(tmr:FlxTimer) {

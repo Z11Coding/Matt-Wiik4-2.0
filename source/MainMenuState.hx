@@ -25,12 +25,14 @@ import flixel.addons.plugin.FlxMouseControl;
 import flixel.input.mouse.FlxMouse;
 import flixel.addons.effects.FlxTrail;
 import LoadingState.LoadingsState;
+import openfl.Lib;
 
 using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
+	public static var extraKeysVersion:String = '0.2';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -44,6 +46,7 @@ class MainMenuState extends MusicBeatState
 	var art5:FlxSprite;
 	var artother:FlxSprite;
 	var artsetting:FlxSprite;
+	var artgamejolt:FlxSprite;
 	var scoreText:FlxText;
 	public static var weekName:String;
 	
@@ -71,9 +74,11 @@ class MainMenuState extends MusicBeatState
 	var button5:FlxExtendedSprite;
 	var freeplay:FlxExtendedSprite;
 	var options:FlxExtendedSprite;
+	var gamejolt:FlxExtendedSprite;
 	var wiiCursor:FlxSprite;
 	var cursorSize:Float;
 	var cursorOWidth:Float;
+	var evilTrail:FlxTrail; //nice
 
 	override function create()
 	{
@@ -85,7 +90,8 @@ class MainMenuState extends MusicBeatState
 		wiiCursor.updateHitbox();
 		//cursorOWidth = wiiCursor.width;
 		//cursorSize = cursorOWidth;
-		var evilTrail = new FlxTrail(wiiCursor, null, 20, 1, 1, 0.069); //nice
+
+		evilTrail = new FlxTrail(wiiCursor, null, 20, 1, 1, 0.069); //nice
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -189,11 +195,17 @@ class MainMenuState extends MusicBeatState
 		artsetting.setGraphicSize(Std.int(artsetting.width * 1.01));
 		add(artsetting);
 
+		artgamejolt = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/dajoltofgames'));
+		artgamejolt.updateHitbox();
+		artgamejolt.antialiasing = true;
+		artgamejolt.alpha = 1;
+		artgamejolt.setGraphicSize(Std.int(artgamejolt.width * 1.01));
+		add(artgamejolt);
+
 		tbutton = new FlxExtendedSprite(-600, -300);
 		tbutton.frames = Paths.getSparrowAtlas('mainmenu/tbutton');
 		tbutton.animation.addByPrefix('idle', 'tbutton unselected', 24, false);
 		tbutton.animation.addByPrefix('select', 'tbutton selected', 24, false);
-		//tbutton.setGraphicSize(Std.int(tbutton.width / dasize));
 		tbutton.updateHitbox();
 		tbutton.enableMouseClicks(true, false, 255);
 		add(tbutton);
@@ -204,7 +216,6 @@ class MainMenuState extends MusicBeatState
 		button1.frames = Paths.getSparrowAtlas('mainmenu/1button');
 		button1.animation.addByPrefix('idle', '1button unselected', 24, false);
 		button1.animation.addByPrefix('select', '1button selected', 24, false);
-		//1button.setGraphicSize(Std.int(1button.width / dasize));
 		button1.updateHitbox();
 		add(button1);
 		button1.animation.play('idle');
@@ -213,7 +224,6 @@ class MainMenuState extends MusicBeatState
 		button2.frames = Paths.getSparrowAtlas('mainmenu/2button');
 		button2.animation.addByPrefix('idle', '2button unselected', 24, false);
 		button2.animation.addByPrefix('select', '2button selected', 24, false);
-		//2button.setGraphicSize(Std.int(2button.width / dasize));
 		button2.updateHitbox();
 		add(button2);
 		button2.animation.play('idle');
@@ -222,7 +232,6 @@ class MainMenuState extends MusicBeatState
 		button3.frames = Paths.getSparrowAtlas('mainmenu/3button');
 		button3.animation.addByPrefix('idle', '3button unselected', 24, false);
 		button3.animation.addByPrefix('select', '3button selected', 24, false);
-		//3button.setGraphicSize(Std.int(3button.width / dasize));
 		button3.updateHitbox();
 		add(button3);
 		button3.animation.play('idle');
@@ -231,7 +240,6 @@ class MainMenuState extends MusicBeatState
 		button4.frames = Paths.getSparrowAtlas('mainmenu/4button');
 		button4.animation.addByPrefix('idle', '4button unselected', 24, false);
 		button4.animation.addByPrefix('select', '4button selected', 24, false);
-		//4button.setGraphicSize(Std.int(4button.width / dasize));
 		button4.updateHitbox();
 		add(button4);
 		button4.animation.play('idle');
@@ -240,7 +248,6 @@ class MainMenuState extends MusicBeatState
 		button5.frames = Paths.getSparrowAtlas('mainmenu/5button');
 		button5.animation.addByPrefix('idle', '5button unselected', 24, false);
 		button5.animation.addByPrefix('select', '5button selected', 24, false);
-		//tbutton.setGraphicSize(Std.int(tbutton.width / dasize));
 		button5.updateHitbox();
 		add(button5);
 		button5.animation.play('idle');
@@ -249,7 +256,6 @@ class MainMenuState extends MusicBeatState
 		freeplay.frames = Paths.getSparrowAtlas('mainmenu/freeplay');
 		freeplay.animation.addByPrefix('idle', 'freeplay unselected', 24, false);
 		freeplay.animation.addByPrefix('select', 'freeplay selected', 24, false);
-		//freeplay.setGraphicSize(Std.int(freeplay.width / dasize));
 		freeplay.updateHitbox();
 		add(freeplay);
 		freeplay.animation.play('idle');
@@ -258,13 +264,21 @@ class MainMenuState extends MusicBeatState
 		options.frames = Paths.getSparrowAtlas('mainmenu/options');
 		options.animation.addByPrefix('idle', 'options unselected', 24, false);
 		options.animation.addByPrefix('select', 'options selected', 24, false);
-		//options.setGraphicSize(Std.int(options.width / dasize));
 		options.updateHitbox();
 		add(options);
 		options.animation.play('idle');
 
+		gamejolt = new FlxExtendedSprite(300, -200);
+		gamejolt.frames = Paths.getSparrowAtlas('mainmenu/gamejolt');
+		gamejolt.animation.addByPrefix('idle', 'gamejolt unselected', 24, false);
+		gamejolt.animation.addByPrefix('select', 'gamejolt selected', 24, false);
+		gamejolt.setGraphicSize(Std.int(gamejolt.width * 0.7));
+		gamejolt.updateHitbox();
+		//add(gamejolt);
+		gamejolt.animation.play('idle');
+
 		scoreText = new FlxText(-600, -330, 0, "SCORE: 49324858", 36);
-		scoreText.setFormat("VCR OSD Mono", 32);
+		scoreText.setFormat("FOT-RodinWanpaku Pro EB", 32);
 		add(scoreText);
 
 		//menuItems = new FlxTypedGroup<FlxSprite>();
@@ -275,40 +289,28 @@ class MainMenuState extends MusicBeatState
 			scale = 6 / optionShit.length;
 		}*/
 
-		/*for (i in 0...optionShit.length)
-		{
-			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 60;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
-			menuItem.scale.x = scale;
-			menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/' + optionShit[i]);
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " unselected", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " selected", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			//menuItem.screenCenter(X);
-			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;
-			menuItem.scrollFactor.set(0, 0);
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
-			menuItem.updateHitbox();
-			
-		}*/
-
 
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
+		if (FlxG.save.data.firstTimeUsing == null) {
+			FlxG.save.data.firstTimeUsing = true;
+		}
+
+		var texts:Array<String> = [
+			"Friday Night Funkin' v" + Application.current.meta.get('version'),
+			"Psych Engine v" + psychEngineVersion,
+			"Mixtape Engine v" + extraKeysVersion,
+			"Vs. Matt: Wiik4 Remastered",
+			"God this took way to long lmao",
+		];
+
+		for (i in 0...texts.length) {
+			var versionShit:FlxText = new FlxText(12, (FlxG.height - 24) - (18 * i), 0, texts[i], 12);
+			versionShit.scrollFactor.set();
+			versionShit.setFormat("FOT-RodinWanpaku Pro EB", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			add(versionShit);
+		}
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -341,6 +343,40 @@ class MainMenuState extends MusicBeatState
 	}
 	#end
 
+	function qatarShit():String {
+		var leGoal = new Date(2022, 11, 21, 12, 0, 0).getTime();
+
+		var second = 1000;
+		var minute = second * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+
+		var leDate = Date.now().getTime();
+		var timeLeft = leGoal - leDate;
+
+		var shitArray:Array<Dynamic> = [
+			Math.floor(timeLeft / (day)),
+         	Math.floor((timeLeft % (day)) / (hour)),
+			Math.floor((timeLeft % (hour)) / (minute)),
+        	Math.floor((timeLeft % (minute)) / second)
+		];
+
+		var zeroShitArray:Array<String> = ["day","hour","minute","second"];
+		
+		var leftTime:String = "";
+
+		for (i in 0...shitArray.length) {
+			if (shitArray[i] < 10) {
+				zeroShitArray[i] = '0' + shitArray[i];
+			} else zeroShitArray[i] = '' + shitArray[i];
+			var dosPuntos:String = (i > 0 && i < shitArray.length) ? ":" : "";
+
+			leftTime += dosPuntos + zeroShitArray[i];
+		}
+
+		return leftTime;
+	}
+
 	override function closeSubState() {
 		changeItem();
 		persistentUpdate = true;
@@ -357,6 +393,7 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
 
 		FlxG.watch.addQuick("Mouse X", FlxG.mouse.x);
@@ -373,35 +410,35 @@ class MainMenuState extends MusicBeatState
 		cursorSize += (cToW - cursorSize) / 3;
 		wiiCursor.setGraphicSize(Std.int(cursorSize));
 
-		if (tbutton.mouseOver)
+		if (tbutton.mouseOver && !selectedSomethin) //why the heck didnt i start with  && !selectedSomethin like god how dumb am i
 		{
 			changeItem(0, true, 0);
 		}
-		if (button1.mouseOver)
+		if (button1.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 1);
 		}
-		if (button2.mouseOver)
+		if (button2.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 2);
 		}
-		if (button3.mouseOver)
+		if (button3.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 3);
 		}
-		if (button4.mouseOver)
+		if (button4.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 4);
 		}
-		if (button5.mouseOver)
+		if (button5.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 5);
 		}
-		if (freeplay.mouseOver)
+		if (freeplay.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 6);
 		}
-		if (options.mouseOver)
+		if (options.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 7);
 		}
@@ -411,7 +448,7 @@ class MainMenuState extends MusicBeatState
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
-		if (weekName != '')
+		if (weekName != '' && weekName != 'gamejolt')
 		{
 			scoreText.alpha = 1;
 			scoreText.text = "WEEK SCORE:" + lerpScore;
@@ -447,7 +484,8 @@ class MainMenuState extends MusicBeatState
 				|| button4.isPressed 
 				|| button5.isPressed 
 				|| freeplay.isPressed 
-				|| options.isPressed)
+				|| options.isPressed
+				|| gamejolt.isPressed)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
@@ -470,7 +508,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == '1button')
+					else if (optionShit[curSelected] == '1button')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(button1, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -482,7 +520,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == '2button')
+					else if (optionShit[curSelected] == '2button')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(button2, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -494,7 +532,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == '3button')
+					else if (optionShit[curSelected] == '3button')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(button3, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -506,7 +544,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == '4button')
+					else if (optionShit[curSelected] == '4button')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(button4, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -518,7 +556,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == '5button')
+					else if (optionShit[curSelected] == '5button')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(button5, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -530,7 +568,7 @@ class MainMenuState extends MusicBeatState
 						freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == 'freeplay')
+					else if (optionShit[curSelected] == 'freeplay')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(freeplay, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -542,7 +580,7 @@ class MainMenuState extends MusicBeatState
 						//freeplay.alpha = 0;
 						options.alpha = 0;
 					}
-					if (optionShit[curSelected] == 'options')
+					else if (optionShit[curSelected] == 'options')
 					{
 						if(ClientPrefs.flashing) FlxFlicker.flicker(options, 1.1, 0.15, false);
 						tbutton.alpha = 0;
@@ -553,6 +591,18 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						//options.alpha = 0;
+					}
+					else if (optionShit[curSelected] == 'gamejolt')
+					{
+						if(ClientPrefs.flashing) FlxFlicker.flicker(gamejolt, 1.1, 0.15, false);
+						tbutton.alpha = 0;
+						button1.alpha = 0;
+						button2.alpha = 0;
+						button3.alpha = 0;
+						button4.alpha = 0;
+						button5.alpha = 0;
+						freeplay.alpha = 0;
+						options.alpha = 0;
 					}
 
 					FlxFlicker.flicker(magenta, 1, 0.06, false, false, function(flick:FlxFlicker)
@@ -646,11 +696,13 @@ class MainMenuState extends MusicBeatState
 								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case 'options':
 								LoadingState.loadAndSwitchState(new options.OptionsState());
+							/*case 'gamejolt':
+								LoadingState.loadAndSwitchState(new GameJoltLogin());*/
 						}
 					});
 				}
 			}
-			#if desktop
+			#if debug
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;
@@ -672,8 +724,6 @@ class MainMenuState extends MusicBeatState
 				curSelected = 0;
 			if (curSelected < 0)
 				curSelected = optionShit.length - 1;
-			FlxG.mouse.visible = false;
-			FlxG.mouse.enabled = false;
 		}
 
 		if (overrideit)
@@ -684,7 +734,7 @@ class MainMenuState extends MusicBeatState
 
 		if (optionShit[curSelected] == 'tbutton')
 		{
-			tbutton.animation.play('selected', true);
+			tbutton.animation.play('select', true);
 			tbutton.alpha = 1;
 			tart.alpha = 1;
 			weekName = 'tutorialMatt';
@@ -697,7 +747,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == '1button')
 		{
-			button1.animation.play('selected', true);
+			button1.animation.play('select', true);
 			button1.alpha = 1;
 			art1.alpha = 1;
 			weekName = 'Week1Matt';
@@ -710,7 +760,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == '2button')
 		{
-			button2.animation.play('selected', true);
+			button2.animation.play('select', true);
 			button2.alpha = 1;
 			art2.alpha = 1;
 			weekName = 'Week2Matt';
@@ -723,7 +773,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == '3button')
 		{
-			button3.animation.play('selected', true);
+			button3.animation.play('select', true);
 			button3.alpha = 1;
 			art3.alpha = 1;
 			weekName = 'Week3Matt';
@@ -736,7 +786,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == '4button')
 		{
-			button4.animation.play('selected', true);
+			button4.animation.play('select', true);
 			button4.alpha = 1;
 			art4.alpha = 1;
 			weekName = 'Week4Matt';
@@ -749,7 +799,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == '5button')
 		{
-			button5.animation.play('selected', true);
+			button5.animation.play('select', true);
 			button5.alpha = 1;
 			art5.alpha = 1;
 			weekName = 'Week5Matt';
@@ -762,7 +812,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == 'freeplay')
 		{
-			freeplay.animation.play('selected', true);
+			freeplay.animation.play('select', true);
 			freeplay.alpha = 1;
 			artother.alpha = 1;
 			weekName = '';
@@ -775,7 +825,7 @@ class MainMenuState extends MusicBeatState
 		}
 		if (optionShit[curSelected] == 'options')
 		{
-			options.animation.play('selected', true);
+			options.animation.play('select', true);
 			options.alpha = 1;
 			artsetting.alpha = 1;
 			weekName = '';
@@ -786,7 +836,21 @@ class MainMenuState extends MusicBeatState
 			artsetting.alpha = 0;
 			options.alpha = 0.5;
 		}
+		if (optionShit[curSelected] == 'gamejolt')
+		{
+			gamejolt.animation.play('select', true);
+			gamejolt.alpha = 1;
+			artgamejolt.alpha = 1;
+			weekName = 'gamejolt';
+		}
+		else
+		{
+			gamejolt.animation.play('idle', true);
+			artgamejolt.alpha = 0;
+			gamejolt.alpha = 0.5;
+		}
 		#if !switch
+			if (weekName != 'gamejolt')
 			intendedScore = Highscore.getWeekScore(weekName, 1);
 		#end
 	}

@@ -183,6 +183,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 	var textBoxTypes:Array<String> = ['normal', 'angry'];
 	
 	var curCharacter:String = "";
+	var curDialogue:DialogueLine = null;
 	//var charPositionList:Array<String> = ['left', 'center', 'right'];
 
 	public function new(dialogueList:DialogueFile, ?song:String = null)
@@ -291,6 +292,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 
 	public var closeSound:String = 'dialogueClose';
 	public var closeVolume:Float = 1;
+	var elap:Float;
 	override function update(elapsed:Float)
 	{
 		if(ignoreThisFrame) {
@@ -299,9 +301,22 @@ class DialogueBoxPsych extends FlxSpriteGroup
 			return;
 		}
 
+		elap = elapsed;
+
 		if(!dialogueEnded) {
 			bgFade.alpha += 0.5 * elapsed;
 			if(bgFade.alpha > 0.5) bgFade.alpha = 0.5;
+
+			if(daText.finishedText && curDialogue.text.contains('-')) {
+				daText.finishText();
+				if(skipDialogueThing != null) {
+					skipDialogueThing();
+				}
+				if (currentText >= dialogueList.dialogue.length)
+					endDialogue(true);
+				else
+					startNextDialog();
+			}
 
 			if(PlayerSettings.player1.controls.ACCEPT) {
 				if(!daText.finishedText) {
@@ -310,27 +325,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 						skipDialogueThing();
 					}
 				} else if(currentText >= dialogueList.dialogue.length) {
-					dialogueEnded = true;
-					for (i in 0...textBoxTypes.length) {
-						var checkArray:Array<String> = ['', 'center-'];
-						var animName:String = box.animation.curAnim.name;
-						for (j in 0...checkArray.length) {
-							if(animName == checkArray[j] + textBoxTypes[i] || animName == checkArray[j] + textBoxTypes[i] + 'Open') {
-								box.animation.play(checkArray[j] + textBoxTypes[i] + 'Open', true);
-							}
-						}
-					}
-
-					box.animation.curAnim.curFrame = box.animation.curAnim.frames.length - 1;
-					box.animation.curAnim.reverse();
-					if(daText != null)
-					{
-						daText.kill();
-						remove(daText);
-						daText.destroy();
-					}
-					updateBoxOffsets(box);
-					FlxG.sound.music.fadeOut(1, 0);
+					endDialogue(false);
 				} else {
 					startNextDialog();
 				}
@@ -446,11 +441,85 @@ class DialogueBoxPsych extends FlxSpriteGroup
 		super.update(elapsed);
 	}
 
+	function endDialogue(cutoff:Bool = false)
+	{
+		if (cutoff)
+		{
+			dialogueEnded = true;
+			if(box != null && box.animation.curAnim.curFrame <= 0) {
+				box.kill();
+				remove(box);
+				box.destroy();
+				box = null;
+			}
+			if(bgFade != null) {
+				bgFade.alpha = 0;
+				if(bgFade.alpha <= 0) {
+					bgFade.kill();
+					remove(bgFade);
+					bgFade.destroy();
+					bgFade = null;
+				}
+			}
+			for (i in 0...arrayCharacters.length) {
+				var leChar:DialogueCharacter = arrayCharacters[i];
+				if(leChar != null) {
+					switch(arrayCharacters[i].jsonFile.dialogue_pos) {
+						case 'left':
+							leChar.x -= scrollSpeed * elap;
+						case 'center':
+							leChar.y += scrollSpeed * elap;
+						case 'right':
+							leChar.x += scrollSpeed * elap;
+					}
+					leChar.alpha = 0;
+				}
+			}
+
+			if(box == null && bgFade == null) {
+				for (i in 0...arrayCharacters.length) {
+					var leChar:DialogueCharacter = arrayCharacters[0];
+					if(leChar != null) {
+						arrayCharacters.remove(leChar);
+						leChar.kill();
+						remove(leChar);
+						leChar.destroy();
+					}
+				}
+				finishThing();
+				kill();
+			}
+			FlxG.sound.music.fadeOut(0.1, 0);
+		}
+		else
+		{
+			dialogueEnded = true;
+			for (i in 0...textBoxTypes.length) {
+				var checkArray:Array<String> = ['', 'center-'];
+				var animName:String = box.animation.curAnim.name;
+				for (j in 0...checkArray.length) {
+					if(animName == checkArray[j] + textBoxTypes[i] || animName == checkArray[j] + textBoxTypes[i] + 'Open') {
+						box.animation.play(checkArray[j] + textBoxTypes[i] + 'Open', true);
+					}
+				}
+			}
+
+			box.animation.curAnim.curFrame = box.animation.curAnim.frames.length - 1;
+			box.animation.curAnim.reverse();
+			if(daText != null)
+			{
+				daText.kill();
+				remove(daText);
+				daText.destroy();
+			}
+			updateBoxOffsets(box);
+			FlxG.sound.music.fadeOut(1, 0);
+		}
+	}
 	var lastCharacter:Int = -1;
 	var lastBoxType:String = '';
 	function startNextDialog():Void
 	{
-		var curDialogue:DialogueLine = null;
 		do {
 			curDialogue = dialogueList.dialogue[currentText];
 		} while(curDialogue == null);

@@ -22,7 +22,15 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
 	public static var noteOffset:Int = 0;
-	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
+	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0],
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0], 
+													[0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
@@ -33,6 +41,9 @@ class ClientPrefs {
 	public static var comboStacking:Bool = false;
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
+	public static var antimash:Bool = true;
+	public static var convertEK:Bool = true;
+	public static var showKeybindsOnStart:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -237,7 +248,10 @@ class ClientPrefs {
 		FlxG.save.data.comboStacking = comboStacking;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.antimash = antimash;
+		FlxG.save.data.convertEK = convertEK;
 		FlxG.save.data.inputSystem = inputSystem;
+		FlxG.save.data.showKeybindsOnStart = showKeybindsOnStart;
 	
 		FlxG.save.flush();
 
@@ -353,9 +367,17 @@ class ClientPrefs {
 		if(FlxG.save.data.pauseMusic != null) {
 			pauseMusic = FlxG.save.data.pauseMusic;
 		}
+		if (FlxG.save.data.antimash != null) {
+			antimash = FlxG.save.data.antimash;
+		}
 		if(FlxG.save.data.inputSystem != null) {
 			inputSystem = FlxG.save.data.inputSystem;
 		}
+		if (FlxG.save.data.convertEK != null) {
+			convertEK = FlxG.save.data.convertEK;
+		}
+		if (FlxG.save.data.showKeybindsOnStart != null)
+			showKeybindsOnStart = FlxG.save.data.showKeybindsOnStart;
 		if(FlxG.save.data.gameplaySettings != null)
 		{
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
