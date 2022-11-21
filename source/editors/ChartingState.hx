@@ -104,7 +104,7 @@ class ChartingState extends MusicBeatState
 		['Switch Scroll', "Swap da scroll. Value 1: True or False"],
 		['Dad Fly', "Fly da dad. Value 1: True or False"],
 		['Turn on StrumFocus', "focuses the strums"],
-		['Turn off StrumFocus', "unfocuses the strums"],
+		['Turn off StrumFocus', "un 	focuses the strums"],
 	];
 
 	var _file:FileReference;

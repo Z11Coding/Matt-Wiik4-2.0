@@ -94,7 +94,8 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			"Kade Engine", 
 			"ZoroForce EK", 
 			"Psych (0.6.3)", 
-			"Forever Engine"
+			"Forever Engine",
+			"Hypno Input"
 		]);
 		addOption(option);
 

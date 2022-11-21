@@ -103,8 +103,6 @@ class StrumNote extends FlxExtendedSprite
 		//if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		switch(char)
 		{
-			case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
-				skin = 'noteskins/bf';
 			case '':
 				skin = 'noteskins/normal';
 			case null:

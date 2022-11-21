@@ -1,12 +1,12 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('betrayalsky', 'betrayalsky', -600, -300);
+	makeLuaSprite('betrayalsky', 'betrayal/betrayalsky', -600, -300);
 	setScrollFactor('betrayalsky', 0.9, 0.9);
 	
-	makeLuaSprite('betrayalground', 'betrayalground', -600, -300);
+	makeLuaSprite('betrayalground', 'betrayal/betrayalground', -600, -300);
 	setScrollFactor('betrayalground', 1, 1);
 
-	makeLuaSprite('betrayallava', 'betrayallava', -600, -300);
+	makeLuaSprite('betrayallava', 'betrayal/betrayallava', -600, -300);
 	setScrollFactor('betrayallava', 1, 1);
 
 	addLuaSprite('betrayalsky', false);

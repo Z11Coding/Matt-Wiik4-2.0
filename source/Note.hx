@@ -286,6 +286,10 @@ class Note extends FlxSprite
 	var antialias:Bool = true;
 	var skin:String;
 
+	//Hypno Input Am I Right
+	public var parentNote:Note; 
+	public var childrenNotes:Array<Note> = [];
+
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
 		multSpeed = value;
@@ -398,8 +402,6 @@ class Note extends FlxSprite
 		{
 			switch(char)
 			{
-				case 'bf' | 'b5' | 'b5light' | 'b5lookup' | 'b5ruins' | 'bf2' | 'bfmark' | 'BFN' | 'BFN2' | 'bfscared' | 'bfsmal' | 'wiik4bf' | 'bf-reanimated' | 'bf-speaker':
-					skin = 'noteskins/bf';
 				case '':
 					skin = 'noteskins/normal';
 				case null:
@@ -423,6 +425,14 @@ class Note extends FlxSprite
 		this.strumTime = strumTime;
 		if (!inEditor)
 			this.strumTime += ClientPrefs.noteOffset;
+
+		if (isSustainNote && prevNote != null) {
+			parentNote = prevNote;
+			while (parentNote.parentNote != null)
+				parentNote = parentNote.parentNote;
+			parentNote.childrenNotes.push(this);
+		} else if (!isSustainNote)
+			parentNote = null;
 
 		antialias = ClientPrefs.globalAntialiasing;
 
@@ -653,24 +663,38 @@ class Note extends FlxSprite
 
 		mania = PlayState.mania;
 
-		if (mustPress)
+		if (tooLate || (parentNote != null && parentNote.tooLate))
+			alpha = 0.3;
+
+		if (ClientPrefs.inputSystem == "Hypno Input")
 		{
-			// ok river
-			if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult))
+			if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset) 
+				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset))
 				canBeHit = true;
 			else
 				canBeHit = false;
-
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
-				tooLate = true;
 		}
 		else
 		{
-			canBeHit = false;
+			if (mustPress)
+			{
+				// ok river
+				if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
+					&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult))
+					canBeHit = true;
+				else
+					canBeHit = false;
 
-			if (strumTime <= Conductor.songPosition)
-				wasGoodHit = true;
+				if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+					tooLate = true;
+			}
+			else
+			{
+				canBeHit = false;
+
+				if (strumTime <= Conductor.songPosition)
+					wasGoodHit = true;
+			}
 		}
 
 		if (isSustainNote && !susActive)

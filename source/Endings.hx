@@ -51,7 +51,7 @@ class Endings extends MusicBeatState
             openSubState(new LoadingsState());
             FlxTransitionableState.skipNextTransIn = true;
             var toSwitchToState = new MainMenuState();
-            LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+            LoadingState.loadAndSwitchState(toSwitchToState, false,true);
         });
     }
 
