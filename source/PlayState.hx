@@ -5897,10 +5897,10 @@ class PlayState extends MusicBeatState
 			time += 0.15;
 		}
 
-		if (!note.exNote)
-			StrumPlayAnim(true, Std.int(Math.abs(note.noteData)) % 4, time, false);
+		if (!note.exNote && Note.ammo[mania] == 4)
+			StrumPlayAnim(true, Std.int(Math.abs(note.noteData)) % Note.ammo[mania], time, false);
 		else
-			StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % 4, time, true);
+			StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % Note.ammo[mania], time, true);
 		note.hitByOpponent = true;
 
 		callOnLuas('opponentNoteHit', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
@@ -6138,7 +6138,7 @@ class PlayState extends MusicBeatState
 				if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
 					time += 0.15;
 				}
-				StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % 4, time, false);
+				StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % Note.ammo[mania], time, false);
 			} else {
 				playerStrums.forEach(function(spr:StrumNote)
 				{
