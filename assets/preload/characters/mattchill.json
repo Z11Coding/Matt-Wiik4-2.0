@@ -58,12 +58,12 @@
 		{
 			"offsets": [
 				0,
-				0
+				4
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "snap",
-			"loop": false,
+			"indices": [],
 			"name": "Matt ChillSnap"
 		}
 	],
@@ -71,7 +71,7 @@
 	"image": "matt_chars/matt_chill",
 	"position": [
 		140,
-		340
+		310
 	],
 	"healthicon": "matt",
 	"flip_x": false,

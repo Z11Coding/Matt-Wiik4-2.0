@@ -95,7 +95,8 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			"ZoroForce EK", 
 			"Psych (0.6.3)", 
 			"Forever Engine",
-			"Hypno Input"
+			"Hypno's Lullaby",
+			"OS Engine",
 		]);
 		addOption(option);
 

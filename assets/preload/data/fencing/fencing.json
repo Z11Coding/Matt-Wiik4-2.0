@@ -1,8 +1,8 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "wiik4bf",
-		"player2": "matt4",
+		"player1": "b5",
+		"player2": "matt5",
 		"notes": [
 			{
 				"typeOfSection": 0,
@@ -7515,12 +7515,12 @@
 				"mustHitSection": true
 			}
 		],
-		"gfVersion": "gf",
+		"gfVersion": "womanless",
 		"events": [],
 		"player3": null,
 		"song": "fencing",
 		"needsVoices": true,
-		"stage": "wiik4",
+		"stage": "bridge",
 		"sections": 0,
 		"validScore": true,
 		"speed": 2.4,

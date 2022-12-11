@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				12,
 				0
 			],
-			"loop": false,
-			"fps": 18,
 			"anim": "idle",
-			"indices": [],
-			"name": "MATT NORMAL IDLE"
+			"fps": 18,
+			"name": "MATT NORMAL IDLE",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				37,
 				-5
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "MATT NORMAL UP"
+			"fps": 24,
+			"name": "MATT NORMAL UP",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				22,
 				-40
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "MATT NORMAL DOWN"
+			"fps": 24,
+			"name": "MATT NORMAL DOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				125,
 				-14
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "MATT NORMAL LEFT"
+			"fps": 24,
+			"name": "MATT NORMAL LEFT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				12,
 				-18
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "MATT NORMAL RIGHT"
+			"fps": 24,
+			"name": "MATT NORMAL RIGHT",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				66,
 				27
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 48,
-			"name": "MATT ALT UP",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "MATT ALT UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				147,
 				-17
 			],
-			"anim": "singRIGHT-alt",
+			"loop": false,
 			"fps": 48,
-			"name": "MATT ALT RIGHT",
-			"indices": []
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "MATT ALT RIGHT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				208,
 				-20
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 48,
-			"name": "MATT ALT LEFT",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "MATT ALT LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				256,
 				-58
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 48,
-			"name": "MATT ALT DOWN",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "MATT ALT DOWN"
 		}
 	],
 	"no_antialiasing": false,
@@ -106,7 +106,7 @@
 		50,
 		350
 	],
-	"healthicon": "mattsword",
+	"healthicon": "mattohappy",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,

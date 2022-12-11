@@ -1,6 +1,6 @@
 {
 	"storyName": "Your New Week",
-	"difficulties": "",
+	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"freeplayColor": [
@@ -175,8 +175,8 @@
 			]
 		],
 		[
-			"Fencing",
-			"mattsword",
+			"Rivalry",
+			"mattohappy",
 			[
 				255,
 				106,
@@ -185,7 +185,7 @@
 		],
 		[
 			"Parry",
-			"mattsword",
+			"mattohappy",
 			[
 				255,
 				106,
@@ -194,7 +194,7 @@
 		],
 		[
 			"Starlight",
-			"mattsword",
+			"mattohappy",
 			[
 				255,
 				106,
@@ -203,43 +203,7 @@
 		],
 		[
 			"Swordsman",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"en-garde",
-			"matthurt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"swordfight",
-			"matthurt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"combatold",
-			"matthurt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"final-showdown",
-			"matthurt",
+			"mattohappy",
 			[
 				255,
 				106,
@@ -292,70 +256,7 @@
 			]
 		],
 		[
-			"Combat-alt",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"Rucjus",
-			"matt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"unwind",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"power-surge",
-			"matthurt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"Sword-Up",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"Strike",
-			"matthurt",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
 			"War of honour",
-			"mattsword",
-			[
-				255,
-				106,
-				0
-			]
-		],
-		[
-			"betrayal",
 			"mattsword",
 			[
 				255,
@@ -373,8 +274,8 @@
 			]
 		],
 		[
-			"rivalry",
-			"mattsword",
+			"fishy",
+			"mattohappy",
 			[
 				255,
 				106,
@@ -382,21 +283,57 @@
 			]
 		],
 		[
-			"pbrfa",
-			"matthurt",
+			"fencing",
+			"mattohappy",
 			[
-				146,
-				113,
-				253
+				255,
+				106,
+				0
 			]
 		],
 		[
-			"Double Up",
-			"matt",
+			"Sword-Up",
+			"mattohappy",
 			[
-				146,
-				113,
-				253
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"unwind",
+			"mattohappy",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"power-surge",
+			"mattoangry",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Strike",
+			"mattoangry",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"ultimate-knockout",
+			"sickomode",
+			[
+				100,
+				100,
+				100
 			]
 		],
 		[
@@ -418,12 +355,12 @@
 			]
 		],
 		[
-			"knockout (dont play)",
-			"madmatt",
+			"infraction",
+			"sickomode",
 			[
-				255,
-				106,
-				0
+				100,
+				100,
+				100
 			]
 		],
 		[
@@ -472,8 +409,26 @@
 			]
 		],
 		[
-			"allies",
-			"matt",
+			"betrayal",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Double Up",
+			"mattohappy",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"knockout",
+			"mattoangry",
 			[
 				255,
 				106,
@@ -482,7 +437,7 @@
 		],
 		[
 			"haven",
-			"mattsword",
+			"mattoangry",
 			[
 				255,
 				106,
@@ -496,6 +451,87 @@
 				25,
 				25,
 				25
+			]
+		],
+		[
+			"pbrfa",
+			"matthurt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Combat-alt",
+			"mattsword",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"Rucjus",
+			"matt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"en-garde",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"swordfight",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"combatold",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"final-showdown",
+			"matthurt",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"parry-old",
+			"mattohappy",
+			[
+				255,
+				106,
+				0
+			]
+		],
+		[
+			"ultimate-knockout-old",
+			"sickomode",
+			[
+				100,
+				100,
+				100
 			]
 		]
 	],

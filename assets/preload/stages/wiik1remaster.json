@@ -1,0 +1,10 @@
+{
+	"directory": "wiik1remaster",
+	"defaultZoom": 0.8,
+	"isPixelStage": false,
+
+	"boyfriend": [930, 200],
+	"girlfriend": [400, 280],
+	"opponent": [0, 200],
+	"opponent2": [550, 300]
+}

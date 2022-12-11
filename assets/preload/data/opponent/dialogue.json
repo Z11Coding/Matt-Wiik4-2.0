@@ -1,0 +1,18 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "empty",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "ah"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "empty",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "g"
+		}
+	]
+}

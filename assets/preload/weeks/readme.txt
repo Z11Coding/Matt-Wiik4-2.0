@@ -1,1 +1,1 @@
-Drop your custom week .json files here!
+Drop your custom week .json files here! or not that's cool too ;_;

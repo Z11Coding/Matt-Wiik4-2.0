@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MattRemastered.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="matt down note0000" x="0" y="0" width="355" height="373" frameX="0" frameY="-5" frameWidth="356" frameHeight="379"/>
+	<SubTexture name="matt down note0001" x="0" y="0" width="355" height="373" frameX="0" frameY="-5" frameWidth="356" frameHeight="379"/>
+	<SubTexture name="matt down note0002" x="355" y="0" width="350" height="379" frameX="-6" frameY="0" frameWidth="356" frameHeight="379"/>
+	<SubTexture name="matt down note0003" x="355" y="0" width="350" height="379" frameX="-6" frameY="0" frameWidth="356" frameHeight="379"/>
+	<SubTexture name="matt idle0000" x="705" y="0" width="378" height="446" frameX="-1" frameY="-19" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0001" x="705" y="0" width="378" height="446" frameX="-1" frameY="-19" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0002" x="1083" y="0" width="379" height="447" frameX="0" frameY="-19" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0003" x="1083" y="0" width="379" height="447" frameX="0" frameY="-19" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0004" x="1462" y="0" width="376" height="450" frameX="-1" frameY="-16" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0005" x="1462" y="0" width="376" height="450" frameX="-1" frameY="-16" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0006" x="0" y="450" width="370" height="460" frameX="-2" frameY="-6" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0007" x="0" y="450" width="370" height="460" frameX="-2" frameY="-6" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0008" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0009" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0010" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0011" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0012" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt idle0013" x="370" y="450" width="369" height="466" frameX="-3" frameY="0" frameWidth="379" frameHeight="466"/>
+	<SubTexture name="matt left note0000" x="739" y="450" width="518" height="389" frameX="0" frameY="0" frameWidth="531" frameHeight="389"/>
+	<SubTexture name="matt left note0001" x="739" y="450" width="518" height="389" frameX="0" frameY="0" frameWidth="531" frameHeight="389"/>
+	<SubTexture name="matt left note0002" x="1257" y="450" width="519" height="389" frameX="-12" frameY="0" frameWidth="531" frameHeight="389"/>
+	<SubTexture name="matt left note0003" x="1257" y="450" width="519" height="389" frameX="-12" frameY="0" frameWidth="531" frameHeight="389"/>
+	<SubTexture name="matt right note0000" x="0" y="916" width="461" height="399" frameX="-7" frameY="0" frameWidth="468" frameHeight="399"/>
+	<SubTexture name="matt right note0001" x="0" y="916" width="461" height="399" frameX="-7" frameY="0" frameWidth="468" frameHeight="399"/>
+	<SubTexture name="matt right note0002" x="461" y="916" width="464" height="399" frameX="0" frameY="0" frameWidth="468" frameHeight="399"/>
+	<SubTexture name="matt right note0003" x="461" y="916" width="464" height="399" frameX="0" frameY="0" frameWidth="468" frameHeight="399"/>
+	<SubTexture name="matt up note0000" x="925" y="916" width="363" height="490" frameX="-3" frameY="0" frameWidth="370" frameHeight="490"/>
+	<SubTexture name="matt up note0001" x="925" y="916" width="363" height="490" frameX="-3" frameY="0" frameWidth="370" frameHeight="490"/>
+	<SubTexture name="matt up note0002" x="1288" y="916" width="370" height="477" frameX="0" frameY="-12" frameWidth="370" frameHeight="490"/>
+	<SubTexture name="matt up note0003" x="1288" y="916" width="370" height="477" frameX="0" frameY="-12" frameWidth="370" frameHeight="490"/>
+</TextureAtlas>

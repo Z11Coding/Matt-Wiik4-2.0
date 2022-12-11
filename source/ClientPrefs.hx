@@ -204,12 +204,12 @@ class ClientPrefs {
 		'debug_1'		=> [SEVEN, NONE],
 		'debug_2'		=> [EIGHT, NONE]
 	];
-	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
+	public static var defaultKeys:Map<String, Array<FlxKey>> = keyBinds;
 
-	public static function loadDefaultKeys() {
+	/*public static function loadDefaultKeys() {
 		defaultKeys = keyBinds.copy();
 		//trace(defaultKeys);
-	}
+	}*/
 
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
@@ -256,7 +256,7 @@ class ClientPrefs {
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls_v2', 'ninjamuffin99'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		save.bind('controls_v2', 'vsmatt'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		save.data.customControls = keyBinds;
 		save.flush();
 		FlxG.log.add("Settings saved!");

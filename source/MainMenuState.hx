@@ -451,7 +451,7 @@ class MainMenuState extends MusicBeatState
 		if (weekName != '' && weekName != 'gamejolt')
 		{
 			scoreText.alpha = 1;
-			scoreText.text = "WEEK SCORE:" + lerpScore;
+			scoreText.text = "WEEK SCORE: " + lerpScore;
 		}
 		else
 			scoreText.alpha = 0;
