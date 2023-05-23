@@ -1,0 +1,4 @@
+I beg of you, dont ask. this was annoying to deal with as is. im just glad it fixes the stupid metadata bug cuz otherwise idk what would've.
+
+--edit--
+I know how to fix it codewise but i dont have the time.

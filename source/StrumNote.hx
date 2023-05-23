@@ -9,6 +9,8 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
+import math.Vector3;
+import flixel.math.FlxPoint;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
@@ -17,6 +19,13 @@ using StringTools;
 
 class StrumNote extends FlxExtendedSprite
 {
+	public var vec3Cache:Vector3 = new Vector3(); // for vector3 operations in modchart code
+	public var defScale:FlxPoint = FlxPoint.get(); // for modcharts to keep the scaling
+	override function destroy()
+	{
+		defScale.put();
+		super.destroy();
+	}
 	private var colorSwap:ColorSwap;
 	public var resetAnim:Float = 0;
 	public var noteData:Int = 0;
@@ -135,35 +144,35 @@ class StrumNote extends FlxExtendedSprite
 		var pxDV:Int = Note.pixelNotesDivisionValue;
 
 		if(PlayState.isPixelStage)
-			{
-				loadGraphic(Paths.image('pixelUI/' + texture));
-				width = width / Note.pixelNotesDivisionValue;
-				height = height / 5;
-				antialiasing = false;
-				loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
-				var daFrames:Array<Int> = Note.keysShit.get(PlayState.mania).get('pixelAnimIndex');
+		{
+			loadGraphic(Paths.image('pixelUI/' + texture));
+			width = width / Note.pixelNotesDivisionValue;
+			height = height / 5;
+			antialiasing = false;
+			loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
+			var daFrames:Array<Int> = Note.keysShit.get(PlayState.mania).get('pixelAnimIndex');
 
-				setGraphicSize(Std.int(width * PlayState.daPixelZoom * Note.pixelScales[PlayState.mania]));
-				updateHitbox();
-				antialiasing = false;
-				animation.add('static', [daFrames[noteData]]);
-				animation.add('pressed', [daFrames[noteData] + pxDV, daFrames[noteData] + (pxDV * 2)], 12, false);
-				animation.add('confirm', [daFrames[noteData] + (pxDV * 3), daFrames[noteData] + (pxDV * 4)], 24, false);
-				//i used windows calculator
-			}
+			setGraphicSize(Std.int(width * PlayState.daPixelZoom * Note.pixelScales[PlayState.mania]));
+			updateHitbox();
+			antialiasing = false;
+			animation.add('static', [daFrames[noteData]]);
+			animation.add('pressed', [daFrames[noteData] + pxDV, daFrames[noteData] + (pxDV * 2)], 12, false);
+			animation.add('confirm', [daFrames[noteData] + (pxDV * 3), daFrames[noteData] + (pxDV * 4)], 24, false);
+			//i used windows calculator
+		}
 		else
-			{
-				frames = Paths.getSparrowAtlas(texture);
+		{
+			frames = Paths.getSparrowAtlas(texture);
 
-				antialiasing = ClientPrefs.globalAntialiasing;
+			antialiasing = ClientPrefs.globalAntialiasing;
 
-				setGraphicSize(Std.int(width * Note.scales[PlayState.mania]));
-		
-				animation.addByPrefix('static', 'arrow' + animationArray[0]);
-				animation.addByPrefix('pressed', animationArray[1] + ' press', 24, false);
-				animation.addByPrefix('confirm', animationArray[1] + ' confirm', 24, false);
-			}
-
+			setGraphicSize(Std.int(width * Note.scales[PlayState.mania]));
+	
+			animation.addByPrefix('static', 'arrow' + animationArray[0]);
+			animation.addByPrefix('pressed', animationArray[1] + ' press', 24, false);
+			animation.addByPrefix('confirm', animationArray[1] + ' confirm', 24, false);
+		}
+		defScale.copyFrom(scale);
 		updateHitbox();
 
 		if(lastAnim != null)

@@ -76,6 +76,8 @@ class TitleState extends MusicBeatState
 
 	var titleJSON:TitleData;
 
+	public static var glitchSong:FlxSound;
+
 	public static var updateVersion:String = '';
 
 	override public function create():Void
@@ -118,10 +120,10 @@ class TitleState extends MusicBeatState
 
 		// DEBUG BULLSHIT
 
-		swagShader = new ColorSwap();
+		//swagShader = new ColorSwap();
 		super.create();
 
-		FlxG.save.bind('funkin', 'ninjamuffin99');
+		FlxG.save.bind('weesports' #if (flixel < "5.0.0"), 'Z11Gaming' #end);
 
 		ClientPrefs.loadPrefs();
 
@@ -202,13 +204,15 @@ class TitleState extends MusicBeatState
 			}
 		}
 		#end
+
+		glitchSong = new FlxSound().loadEmbedded(Paths.music('glitchyMenu'));
 	}
 
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
-	var swagShader:ColorSwap = null;
+	//var swagShader:ColorSwap = null;
 
 	function startIntro()
 	{
@@ -237,6 +241,11 @@ class TitleState extends MusicBeatState
 
 			if(FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+				glitchSong.play();
+				FlxG.sound.list.add(glitchSong);
+				glitchSong.persist = true;
+				glitchSong.looped = true;
+				glitchSong.volume = 0;
 			}
 		}
 
@@ -266,7 +275,7 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		swagShader = new ColorSwap();
+		//swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
@@ -276,9 +285,9 @@ class TitleState extends MusicBeatState
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
 		add(gfDance);
-		gfDance.shader = swagShader.shader;
+		//gfDance.shader = swagShader.shader;
 		add(logoBl);
-		logoBl.shader = swagShader.shader;
+		//logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
 		#if (desktop && MODS_ALLOWED)
@@ -386,7 +395,10 @@ class TitleState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music != null)
+		{
 			Conductor.songPosition = FlxG.sound.music.time;
+			glitchSong.time = FlxG.sound.music.time;
+		}
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
@@ -466,11 +478,11 @@ class TitleState extends MusicBeatState
 			skipIntro();
 		}
 
-		if(swagShader != null)
+		/*if(swagShader != null)
 		{
 			if(controls.UI_LEFT) swagShader.hue -= elapsed * 0.1;
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
-		}
+		}*/
 
 		super.update(elapsed);
 	}
@@ -499,6 +511,7 @@ class TitleState extends MusicBeatState
 			textGroup.add(coolText);
 		}
 	}
+
 
 	function deleteCoolText()
 	{
@@ -534,6 +547,7 @@ class TitleState extends MusicBeatState
 					//FlxG.sound.music.stop();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
+					glitchSong.play();
 				case 2:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Psych Engine by'], 15);
@@ -585,13 +599,13 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 14:
-					addMoreText('Friday');
+					addMoreText('Friday Night Funkin');
 				// credTextShit.visible = true;
 				case 15:
-					addMoreText('Night');
+					addMoreText('Vs. Matt Wiik 4');
 				// credTextShit.text += '\nNight';
 				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('Wiimastered Edition'); // credTextShit.text += '\nFunkin';
 
 				case 17:
 					skipIntro();

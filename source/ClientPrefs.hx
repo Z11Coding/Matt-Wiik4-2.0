@@ -8,7 +8,9 @@ import Controls;
 
 class ClientPrefs {
 	public static var downScroll:Bool = false;
+	public static var shagStroke:Bool = false;
 	public static var shaders:Bool = true;
+	public static var stageSwitch:Bool = true;
 	public static var drain:Bool = true;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
@@ -21,6 +23,8 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
+	public static var glitchFest:Bool = false;
+	public static var opponentStrums:Bool = false;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], 
 													[0, 0, 0], [0, 0, 0], 
@@ -214,6 +218,7 @@ class ClientPrefs {
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.shaders = shaders;
+		FlxG.save.data.stageSwitch = stageSwitch;
 		FlxG.save.data.drain = drain;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.showFPS = showFPS;
@@ -227,6 +232,8 @@ class ClientPrefs {
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
+		FlxG.save.data.glitchFest = glitchFest;
+		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
@@ -272,6 +279,9 @@ class ClientPrefs {
 		if(FlxG.save.data.shaders != null) {
 			shaders = FlxG.save.data.shaders;
 		}
+		if(FlxG.save.data.stageSwitch != null) {
+			stageSwitch = FlxG.save.data.stageSwitch;
+		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
 		}
@@ -314,6 +324,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideHud != null) {
 			hideHud = FlxG.save.data.hideHud;
+		}
+		if(FlxG.save.data.glitchFest != null) {
+			glitchFest = FlxG.save.data.glitchFest;
+		}
+		if(FlxG.save.data.opponentStrums != null) {
+			opponentStrums = FlxG.save.data.opponentStrums;
 		}
 		if(FlxG.save.data.noteOffset != null) {
 			noteOffset = FlxG.save.data.noteOffset;

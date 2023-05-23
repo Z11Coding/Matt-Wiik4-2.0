@@ -56,6 +56,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Opponent Notes',
+			'If unchecked, opponent notes get hidden.',
+			'opponentStrums',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.",
 			'ghostTapping',
@@ -98,6 +105,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			"Hypno's Lullaby",
 			"OS Engine",
 		]);
+		addOption(option);
+
+		var option:Option = new Option('Give Shaggy a stroke',
+			'If checked, shaggy fuckin dies.',
+			'shagStroke',
+			'bool',
+			false);
 		addOption(option);
 
 		var option:Option = new Option('Rating Offset',

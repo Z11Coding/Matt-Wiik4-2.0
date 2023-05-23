@@ -14,7 +14,7 @@ function onCreate()
 
 	addLuaSprite('bg', false);
 	addLuaSprite('ring', false);
-	objectPlayAnimation('bg', 'idle')
+	playAnim('bg', 'idle')
 	--addLuaSprite('woods', false);
 	
 	--For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
@@ -22,10 +22,10 @@ end
 
 function onBeatHit()
 	if curBeat % 2 == 1 then
-		objectPlayAnimation('bg', 'idle')
-		objectPlayAnimation('ring', 'idle', true)
+		playAnim('bg', 'idle')
+		playAnim('ring', 'idle', true)
 	else
-		objectPlayAnimation('ring', 'idle', true)
-		objectPlayAnimation('bg', 'idle2')
+		playAnim('ring', 'idle', true)
+		playAnim('bg', 'idle2')
 	end
 end

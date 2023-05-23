@@ -1,63 +1,63 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "matt idle"
+			"fps": 24,
+			"name": "matt idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				121,
 				-78
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "matt left note"
+			"fps": 24,
+			"name": "matt left note",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-87,
 				-88
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "matt down note"
+			"fps": 24,
+			"name": "matt down note",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-25,
 				20
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "matt up note"
+			"fps": 24,
+			"name": "matt up note",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-77,
 				-65
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "matt right note"
+			"fps": 24,
+			"name": "matt right note",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/mattremastered",
+	"image": "characters/MattRemastered",
 	"position": [
 		140,
 		280

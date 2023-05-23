@@ -26,6 +26,9 @@ import flixel.input.mouse.FlxMouse;
 import flixel.addons.effects.FlxTrail;
 import LoadingState.LoadingsState;
 import openfl.Lib;
+import haxe.Timer;
+import flixel.util.FlxTimer;
+import openfl.filters.BitmapFilter;
 
 using StringTools;
 
@@ -38,15 +41,15 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
-	var tart:FlxSprite;
-	var art1:FlxSprite;
-	var art2:FlxSprite;
-	var art3:FlxSprite;
-	var art4:FlxSprite;
-	var art5:FlxSprite;
-	var artother:FlxSprite;
-	var artsetting:FlxSprite;
-	var artgamejolt:FlxSprite;
+	var tart:FlxExtendedSprite;
+	var art1:FlxExtendedSprite;
+	var art2:FlxExtendedSprite;
+	var art3:FlxExtendedSprite;
+	var art4:FlxExtendedSprite;
+	var art5:FlxExtendedSprite;
+	var artother:FlxExtendedSprite;
+	var artsetting:FlxExtendedSprite;
+	var artgamejolt:FlxExtendedSprite;
 	var scoreText:FlxText;
 	public static var weekName:String;
 	
@@ -58,7 +61,8 @@ class MainMenuState extends MusicBeatState
 		'4button',
 		'5button',
 		'freeplay',
-		'options'
+		'options',
+		''
 	];
 
 	var magenta:FlxSprite;
@@ -79,6 +83,7 @@ class MainMenuState extends MusicBeatState
 	var cursorSize:Float;
 	var cursorOWidth:Float;
 	var evilTrail:FlxTrail; //nice
+	var filters:Array<BitmapFilter> = [];
 
 	override function create()
 	{
@@ -106,8 +111,8 @@ class MainMenuState extends MusicBeatState
 		camAchievement.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camAchievement);
-		FlxCamera.defaultCameras = [camGame];
+		FlxG.cameras.add(camAchievement, false);
+		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
@@ -139,63 +144,72 @@ class MainMenuState extends MusicBeatState
 		
 		// magenta.scrollFactor.set();
 
-		tart = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/tutorial'));
+		tart = new FlxExtendedSprite(-39.5, -255);
+		tart.loadGraphic(Paths.image('mainmenu/tutorial'));
 		tart.updateHitbox();
 		tart.antialiasing = true;
 		tart.alpha = 1;
 		tart.setGraphicSize(Std.int(tart.width * 1.01));
 		add(tart);
 
-		art1 = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/wiik1'));
+		art1 = new FlxExtendedSprite(-39.5, -255);
+		art1.loadGraphic(Paths.image('mainmenu/wiik1'));
 		art1.updateHitbox();
 		art1.antialiasing = true;
 		art1.alpha = 0;
 		art1.setGraphicSize(Std.int(art1.width * 1.01));
 		add(art1);
 
-		art2 = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/wiik2'));
+		art2 = new FlxExtendedSprite(-39.5, -255);
+		art2.loadGraphic(Paths.image('mainmenu/wiik2'));
 		art2.updateHitbox();
 		art2.antialiasing = true;
 		art2.alpha = 0;
 		art2.setGraphicSize(Std.int(art2.width * 1.01));
 		add(art2);
 
-		art3 = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/wiik3'));
+		art3 = new FlxExtendedSprite(-39.5, -255);
+		art3.loadGraphic(Paths.image('mainmenu/wiik3'));
 		art3.updateHitbox();
 		art3.antialiasing = true;
 		art3.alpha = 0;
 		art3.setGraphicSize(Std.int(art3.width * 1.01));
 		add(art3);
 
-		art4 = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/wiik4'));
+		art4 = new FlxExtendedSprite(-39.5, -255);
+		art4.loadGraphic(Paths.image('mainmenu/wiik4'));
 		art4.updateHitbox();
 		art4.antialiasing = true;
 		art4.alpha = 0;
 		art4.setGraphicSize(Std.int(art4.width * 1.01));
 		add(art4);
 
-		art5 = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/wiik5'));
+		art5 = new FlxExtendedSprite(-39.5, -255);
+		art5.loadGraphic(Paths.image('mainmenu/wiik5'));
 		art5.updateHitbox();
 		art5.antialiasing = true;
 		art5.alpha = 0;
 		art5.setGraphicSize(Std.int(art5.width * 1.01));
 		add(art5);
 
-		artother = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/twothirdsofthesongsarejustboxing'));
+		artother = new FlxExtendedSprite(-39.5, -255);
+		artother.loadGraphic(Paths.image('mainmenu/twothirdsofthesongsarejustboxing'));
 		artother.updateHitbox();
 		artother.antialiasing = true;
 		artother.alpha = 1;
 		artother.setGraphicSize(Std.int(artother.width * 1.01));
 		add(artother);
 
-		artsetting = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/settings'));
+		artsetting = new FlxExtendedSprite(-39.5, -255);
+		artsetting.loadGraphic(Paths.image('mainmenu/settings'));
 		artsetting.updateHitbox();
 		artsetting.antialiasing = true;
 		artsetting.alpha = 1;
 		artsetting.setGraphicSize(Std.int(artsetting.width * 1.01));
 		add(artsetting);
 
-		artgamejolt = new FlxSprite(-39.5, -255).loadGraphic(Paths.image('mainmenu/dajoltofgames'));
+		artgamejolt = new FlxExtendedSprite(-39.5, -255);
+		artgamejolt.loadGraphic(Paths.image('mainmenu/dajoltofgames'));
 		artgamejolt.updateHitbox();
 		artgamejolt.antialiasing = true;
 		artgamejolt.alpha = 1;
@@ -390,12 +404,6 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.sound.music.volume < 0.8)
-		{
-			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
-		}
-
 		FlxG.watch.addQuick("Mouse X", FlxG.mouse.x);
 		FlxG.watch.addQuick("Mouse Y", FlxG.mouse.y);
 		FlxG.watch.addQuick("Wii Cursor X", wiiCursor.x);
@@ -413,34 +421,73 @@ class MainMenuState extends MusicBeatState
 		if (tbutton.mouseOver && !selectedSomethin) //why the heck didnt i start with  && !selectedSomethin like god how dumb am i
 		{
 			changeItem(0, true, 0);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (button1.mouseOver && !selectedSomethin)
+		else if (button1.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 1);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (button2.mouseOver && !selectedSomethin)
+		else if (button2.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 2);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (button3.mouseOver && !selectedSomethin)
+		else if (button3.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 3);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (button4.mouseOver && !selectedSomethin)
+		else if (button4.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 4);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (button5.mouseOver && !selectedSomethin)
+		else if (button5.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 5);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (freeplay.mouseOver && !selectedSomethin)
+		else if (freeplay.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 6);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
 		}
-		if (options.mouseOver && !selectedSomethin)
+		else if (options.mouseOver && !selectedSomethin)
 		{
 			changeItem(0, true, 7);
+			TitleState.glitchSong.volume = 0;
+			FlxG.sound.music.volume = 1;
+		}
+		else if (artgamejolt.mouseOver && !selectedSomethin)
+		{
+			changeItem(0, true, 8);
+			if (FlxG.random.bool(10) && !ClientPrefs.glitchFest)
+			{
+				TitleState.glitchSong.volume = 1;
+				FlxG.sound.music.volume = 0;
+			}
+			else
+			{
+				TitleState.glitchSong.volume = 0;
+				FlxG.sound.music.volume = 1;
+			}
+		}
+		else
+		{
+			if (FlxG.sound.music.volume < 0.8 && optionShit[curSelected] != '' && !selectedSomethin)
+			{
+				FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+				if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
+				TitleState.glitchSong.volume = 0;
+			}
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
@@ -485,7 +532,7 @@ class MainMenuState extends MusicBeatState
 				|| button5.isPressed 
 				|| freeplay.isPressed 
 				|| options.isPressed
-				|| gamejolt.isPressed)
+				|| artgamejolt.isPressed)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
@@ -494,7 +541,10 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+					if (optionShit[curSelected] == '')
+						FlxG.sound.play(Paths.sound('confirmMenuG'));
+					else
+						FlxG.sound.play(Paths.sound('confirmMenu'));
 
 					if (optionShit[curSelected] == 'tbutton')
 					{
@@ -507,6 +557,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == '1button')
 					{
@@ -519,6 +571,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == '2button')
 					{
@@ -531,6 +585,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == '3button')
 					{
@@ -543,6 +599,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == '4button')
 					{
@@ -555,6 +613,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == '5button')
 					{
@@ -567,6 +627,8 @@ class MainMenuState extends MusicBeatState
 						//button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == 'freeplay')
 					{
@@ -579,6 +641,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						//freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == 'options')
 					{
@@ -591,6 +655,8 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						//options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
 					}
 					else if (optionShit[curSelected] == 'gamejolt')
 					{
@@ -603,6 +669,21 @@ class MainMenuState extends MusicBeatState
 						button5.alpha = 0;
 						freeplay.alpha = 0;
 						options.alpha = 0;
+						TitleState.glitchSong.volume = 0;
+						FlxG.sound.music.volume = 1;
+					}
+					else if (optionShit[curSelected] == '')
+					{
+						tbutton.alpha = 0;
+						button1.alpha = 0;
+						button2.alpha = 0;
+						button3.alpha = 0;
+						button4.alpha = 0;
+						button5.alpha = 0;
+						freeplay.alpha = 0;
+						options.alpha = 0;
+						TitleState.glitchSong.volume = 1;
+						FlxG.sound.music.volume = 0;
 					}
 
 					FlxFlicker.flicker(magenta, 1, 0.06, false, false, function(flick:FlxFlicker)
@@ -696,6 +777,8 @@ class MainMenuState extends MusicBeatState
 								LoadingState.loadAndSwitchState(toSwitchToState, false,true);
 							case 'options':
 								LoadingState.loadAndSwitchState(new options.OptionsState());
+							case '':
+								glitchScene();
 							/*case 'gamejolt':
 								LoadingState.loadAndSwitchState(new GameJoltLogin());*/
 						}
@@ -712,6 +795,30 @@ class MainMenuState extends MusicBeatState
 		}
 
 		super.update(elapsed);
+	}
+
+	function glitchScene() 
+	{
+		TitleState.glitchSong.volume = 0;
+		FlxG.sound.music.volume = 0;
+
+		new FlxTimer().start(0.3, function(tmr:FlxTimer)
+		{
+			new FlxTimer().start(2, function(tmr:FlxTimer)
+			{
+				PlayState.SONG = Song.loadFromJson('glitch-fest', 'glitch-fest');
+				PlayState.isStoryMode = false;
+				PlayState.trueStory = false;
+				PlayState.storyDifficulty = 0;
+				PlayState.storyPlaylist = ['glitch-fest'];
+				PlayState.campaignScore = 0;
+				LoadingsState.loadArt = 'glitch';
+				openSubState(new LoadingsState());
+				FlxTransitionableState.skipNextTransIn = true;
+				var toSwitchToState = new PlayState();
+				LoadingState.loadAndSwitchState(toSwitchToState, true,true);
+			});
+		});
 	}
 
 	function changeItem(huh:Int = 0, ?overrideit:Bool = true, ?huhuh:Int = 0)
@@ -836,18 +943,14 @@ class MainMenuState extends MusicBeatState
 			artsetting.alpha = 0;
 			options.alpha = 0.5;
 		}
-		if (optionShit[curSelected] == 'gamejolt')
+		if (optionShit[curSelected] == '')
 		{
-			gamejolt.animation.play('select', true);
-			gamejolt.alpha = 1;
 			artgamejolt.alpha = 1;
-			weekName = 'gamejolt';
+			weekName = '';
 		}
 		else
 		{
-			gamejolt.animation.play('idle', true);
 			artgamejolt.alpha = 0;
-			gamejolt.alpha = 0.5;
 		}
 		#if !switch
 			if (weekName != 'gamejolt')

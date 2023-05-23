@@ -4,7 +4,7 @@ function onCreate()
   addLuaSprite('wiik7/1',false)
 
   makeLuaSprite('2','wiik7/2',-550,-300)
-  addLuaSprite('wiik7/2',false)
+  addLuaSprite('2',false)
 
   makeLuaSprite('wiik7/3','wiik7/3',-550,-300)
   addLuaSprite('wiik7/3',false)

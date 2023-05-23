@@ -92,7 +92,10 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		if (ClientPrefs.glitchFest)
+			addSong('Glitch Fest', 9999, 'sickomode', FlxColor.fromRGB(0, 0, 0));
+
+		bg = new FlxSprite().loadGraphic(Paths.image('mainmenu/BGS/' + FlxG.random.int(1, 2) + 'menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
@@ -329,11 +332,16 @@ class FreeplayState extends MusicBeatState
 			if (FlxG.keys.pressed.SHIFT){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
-				LoadingsState.loadArt = 'transparent';
+				if (songLowercase == "headlock")
+					LoadingsState.loadArt = 'headlock';
+				else
+					LoadingsState.loadArt = 'transparent';
+				if (songLowercase != "headlock") LoadingsState.instantAlpha = true;
+				else LoadingsState.instantAlpha = false;
 				openSubState(new LoadingsState());
 				FlxTransitionableState.skipNextTransIn = true;
 				var toSwitchToState = new PlayState();
-				LoadingState.loadAndSwitchState(toSwitchToState, true,false);
+				LoadingState.loadAndSwitchState(toSwitchToState, true,true);
 			}
 
 			FlxG.sound.music.volume = 0;
@@ -359,7 +367,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		if (songs[curSelected].songName.toLowerCase() == 'allies-old' || songs[curSelected].songName.toLowerCase() == 'double up' || songs[curSelected].songName.toLowerCase() == 'haven' || songs[curSelected].songName.toLowerCase() == 'pbrfa')
+		if (songs[curSelected].songName.toLowerCase() == 'double up' || songs[curSelected].songName.toLowerCase() == 'haven')
 			CoolUtil.difficulties = ['Normal', 'Multi'];
 		else
 			CoolUtil.difficulties = ['Normal'];

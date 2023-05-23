@@ -98,7 +98,8 @@ class ControlsSubState extends MusicBeatSubstate {
 		['Up 2',    'note_nine8'],
 		['Right 2', 'note_nine9'],
 		[''],
-		['Try to figure out these ones.'],
+		['Try to figure out '],
+		['these ones.'],
 		[''],
 		['10 KEYS'],
 		['Left 1',  'note_ten1'],
@@ -144,7 +145,8 @@ class ControlsSubState extends MusicBeatSubstate {
 		['Key 1', 'debug_1'],
 		['Key 2', 'debug_2'],
 		[''],
-		['Have Fun Figureing This Out Lol'],
+		['Have Fun Figureing'],
+		['This Out Lol'],
 		[''],
 		['12 KEYS'],
 		['Left 1', 	'note_twel1'],
@@ -209,7 +211,7 @@ class ControlsSubState extends MusicBeatSubstate {
 	public function new() {
 		super();
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenu/BGS/' + FlxG.random.int(1, 2) + 'menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;

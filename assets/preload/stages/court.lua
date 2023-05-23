@@ -18,7 +18,9 @@ function onCreate()
 
   makeLuaSprite('bush b','bush',-550, 200)
   setScrollFactor('bush b', 0.5, 0.5)
-  addLuaSprite('bush b',true)
+  if getProperty('SONG.song.toLowerCase()') == not 'glitch-fest' then
+    addLuaSprite('bush b',true)
+  end
 
 
 	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage

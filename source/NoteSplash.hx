@@ -5,7 +5,6 @@ import flixel.FlxSprite;
 
 class NoteSplash extends FlxSprite
 {
-	public var colorSwap:ColorSwap = null;
 	private var idleAnim:String;
 	private var textureLoaded:String = null;
 
@@ -18,9 +17,6 @@ class NoteSplash extends FlxSprite
 		if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 
 		loadAnims(skin);
-		
-		colorSwap = new ColorSwap();
-		shader = colorSwap.shader;
 
 		setupNoteSplash(x, y, note);
 		antialiasing = ClientPrefs.globalAntialiasing;
@@ -40,9 +36,6 @@ class NoteSplash extends FlxSprite
 		if(textureLoaded != texture) {
 			loadAnims(texture);
 		}
-		colorSwap.hue = hueColor;
-		colorSwap.saturation = satColor;
-		colorSwap.brightness = brtColor;
 
 		var offsets:Array<Int> = [10, 10];
 		var mania:Int = PlayState.mania;

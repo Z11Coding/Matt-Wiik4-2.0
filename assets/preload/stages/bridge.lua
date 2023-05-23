@@ -18,10 +18,10 @@ function onCreate()
   scaleObject('BG6', 1, 1);
   addLuaSprite('BG6',false);
 
-  setLuaSpriteScrollFactor('BG2', 0, 0);
-  setLuaSpriteScrollFactor('BG5', 0.3, 0.3);
-  setLuaSpriteScrollFactor('BG3', 0.4, 0.4);
-  setLuaSpriteScrollFactor('BG', 0.5, 0.5);
-  setLuaSpriteScrollFactor('BG4', 0.8, 0.8);
-  setLuaSpriteScrollFactor('BG6', 1, 1);
+  setScrollFactor('BG2', 0, 0);
+  setScrollFactor('BG5', 0.3, 0.3);
+  setScrollFactor('BG3', 0.4, 0.4);
+  setScrollFactor('BG', 0.5, 0.5);
+  setScrollFactor('BG4', 0.8, 0.8);
+  setScrollFactor('BG6', 1, 1);
 end

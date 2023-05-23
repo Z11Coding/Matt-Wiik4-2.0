@@ -123,7 +123,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Show Keybinds on Start Song',
-			"If checked, your keybinds will be shown on the strum that they correspond to when you start a song.",
+			"If checked, your keybinds will be shown on the strum that they correspond to when you start a song.\n(thanks to tposejank's EK psych engine port for this)",
 			'showKeybindsOnStart',
 			'bool',
 			true);

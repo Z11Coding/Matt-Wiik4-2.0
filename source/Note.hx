@@ -10,6 +10,8 @@ import flash.display.BitmapData;
 import editors.ChartingState;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
+import math.Vector3;
+import flixel.math.FlxPoint;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
@@ -181,6 +183,16 @@ class Note extends FlxSprite
 	// End of extra keys stuff
 	//////////////////////////////////////////////////
 
+	public var vec3Cache:Vector3 = new Vector3(); // for vector3 operations in modchart code
+	public var defScale:FlxPoint = FlxPoint.get(); // for modcharts to keep the scaling
+
+	override function destroy()
+	{
+		defScale.put();
+		super.destroy();
+	}	
+	public var mAngle:Float = 0;
+	public var bAngle:Float = 0;
 	public var extraData:Map<String,Dynamic> = [];
 	public var strumTime:Float = 0;
 
@@ -243,7 +255,7 @@ class Note extends FlxSprite
 	public var copyAlpha:Bool = true;
 
 	public var hitHealth:Float = 0.023;
-	public var missHealth:Float = 0.0475;
+	public var missHealth:Float = 0.0975;
 	public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
 	public var ratingDisabled:Bool = false;
 	public var hitsoundDisabled:Bool = false;
@@ -290,6 +302,9 @@ class Note extends FlxSprite
 	public var parentNote:Note; 
 	public var childrenNotes:Array<Note> = [];
 
+	public var typeOffsetX:Float = 0; // used to offset notes, mainly for note types. use in place of offset.x and offset.y when offsetting notetypes
+	public var typeOffsetY:Float = 0;
+
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
 		multSpeed = value;
@@ -303,6 +318,7 @@ class Note extends FlxSprite
 		{
 			scale.y *= ratio;
 			updateHitbox();
+			defScale.copyFrom(scale);
 		}
 	}
 
@@ -320,13 +336,12 @@ class Note extends FlxSprite
 	private function set_noteType(value:String):String
 	{
 		noteSplashTexture = PlayState.SONG.splashSkin;
-		if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length && Note.ammo[PlayState.mania] < 4)
+		if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length)
 		{
 			colorSwap.hue = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][0] / 360;
 			colorSwap.saturation = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][1] / 100;
 			colorSwap.brightness = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][2] / 100;
 		}
-
 		if (noteData > -1 && noteType != value)
 		{
 			switch (value)
@@ -335,9 +350,6 @@ class Note extends FlxSprite
 					ignoreNote = mustPress;
 					reloadNote('HURT');
 					noteSplashTexture = 'HURTnoteSplashes';
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
 					if (isSustainNote)
 					{
 						missHealth = 0.1;
@@ -349,6 +361,9 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					hasNoteType = true;
 					lowPriority = true;
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 				case 'No Animation':
 					noAnimation = true;
 				case 'GF Sing':
@@ -357,9 +372,6 @@ class Note extends FlxSprite
 					ignoreNote = false;
 					mustPress = true;
 					reloadNote('PARRY');
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
 					if (isSustainNote)
 					{
 						missHealth = 0.2;
@@ -368,6 +380,7 @@ class Note extends FlxSprite
 					{
 						missHealth = 0.4;
 					}
+					hitHealth = 0;
 					hitCausesMiss = false;
 					hasNoteType = true;
 					lowPriority = false;
@@ -378,11 +391,11 @@ class Note extends FlxSprite
 				default:
 					hasNoteType = false;
 			}
+			noteSplashHue = colorSwap.hue;
+			noteSplashSat = colorSwap.saturation;
+			noteSplashBrt = colorSwap.brightness;
 			noteType = value;
 		}
-		noteSplashHue = colorSwap.hue;
-		noteSplashSat = colorSwap.saturation;
-		noteSplashBrt = colorSwap.brightness;
 		return value;
 	}
 
@@ -490,6 +503,7 @@ class Note extends FlxSprite
 					prevNote.scale.y *= (6 / height); //Auto adjust note size
 				}
 				prevNote.updateHitbox();
+				prevNote.defScale.copyFrom(prevNote.scale);
 				// prevNote.setGraphicSize();
 			}
 
@@ -503,6 +517,7 @@ class Note extends FlxSprite
 		{
 			earlyHitMult = 1;
 		}
+		defScale.copyFrom(scale);
 		x += offsetX;
 	}
 
@@ -575,6 +590,7 @@ class Note extends FlxSprite
 				scale.y *= 0.75;
 			}
 		}
+		defScale.copyFrom(scale);
 		updateHitbox();
 
 		if(animName != null)

@@ -16,6 +16,88 @@ typedef ShaderEffect =
 	var shader:Dynamic;
 }
 
+class FisheyeEffect
+{
+	public var shader:FisheyeShader = new FisheyeShader();
+
+	public function new()
+	{
+		shader.maxpower.value = [0];
+	}
+
+	public function addEye(eye:Float)
+	{
+		trace(shader.maxpower.value[0]);
+		shader.maxpower.value[0] += eye;
+	}
+
+	public function setEye(eye:Float)
+	{
+		shader.maxpower.value[0] = eye;
+	}
+}
+
+class FisheyeShader extends FlxShader
+{
+	@:glFragmentSource('    
+		//SHADERTOY PORT FIX
+		#pragma header
+		vec2 uv = openfl_TextureCoordv.xy;
+		vec2 fragCoord = openfl_TextureCoordv*openfl_TextureSize;
+		vec2 iResolution = openfl_TextureSize;
+		uniform float iTime;
+		#define iChannel0 bitmap
+		#define texture flixel_texture2D
+		#define fragColor gl_FragColor
+		#define mainImage main
+		//****MAKE SURE TO remove the parameters from mainImage.
+		//SHADERTOY PORT FIX
+		uniform float maxpower -0.2 // negative : anti fish eye. positive = fisheye
+
+		//Inspired by http://stackoverflow.com/questions/6030814/add-fisheye-effect-to-images-at-runtime-using-opengl-es
+		void mainImage()//Drag mouse over rendering area
+		{
+			vec2 p = fragCoord.xy / iResolution.x;//normalized coords with some cheat
+																	//(assume 1:1 prop)
+			float prop = iResolution.x / iResolution.y;//screen proroption
+			vec2 m = vec2(0.5, 0.5 / prop);//center coords
+			vec2 d = p - m;//vector from center to current fragment
+			float r = sqrt(dot(d, d)); // distance of pixel from center
+
+			float power = maxpower * sin(iTime * 2.0);
+
+			float bind;//radius of 1:1 effect
+			if (power > 0.0) 
+				bind = sqrt(dot(m, m));//stick to corners
+			else {if (prop < 1.0) 
+				bind = m.x; 
+			else 
+				bind = m.y;}//stick to borders
+
+			//Weird formulas
+			vec2 uv;
+			if (power > 0.0)//fisheye
+				uv = m + normalize(d) * tan(r * power) * bind / tan( bind * power);
+			else if (power < 0.0)//antifisheye
+				uv = m + normalize(d) * atan(r * -power * 10.0) * bind / atan(-power * bind * 10.0);
+			else uv = p;//no effect for power = 1.0
+				
+			uv.y *= prop;
+
+			vec3 col = texture(iChannel0, uv).rgb;
+			
+			// inverted
+			//vec3 col = texture(iChannel0, vec2(uv.x, 1.0 - uv.y)).rgb;//Second part of cheat
+															//for round effect, not elliptical
+			fragColor = vec4(col, 1.0);
+		}
+  ')
+	public function new()
+	{
+		super();
+	}
+}
+
 class BuildingEffect
 {
 	public var shader:BuildingShader = new BuildingShader();
@@ -115,131 +197,135 @@ class BrightEffect
 
 }
 
-/*class RaymarchEffect {
-  var rad = Math.PI/180;
-  public var shader:RaymarchShader = new RaymarchShader();
-  public function new(){
-    shader.yaw.value = [0];
-    shader.pitch.value = [0];
-  }
-  public function addYaw(yaw:Float){
-    shader.yaw.value[0]+=yaw*rad;
-  }
-  public function setYaw(yaw:Float){
-    shader.yaw.value[0]=yaw*rad;
-  }
+class ErrorEffect {
+	public var shader:ErrorShader = new ErrorShader();
+	public function new()
+	{
+		shader.glitchAmplitude.value[0] = 0;
+		shader.glitchNarrowness.value[0] = 0;
+		shader.glitchBlockiness.value[0] = 0;
+		shader.glitchMinimizer.value[0] = 0;
+	}
 
-  public function addPitch(pitch:Float){
-    shader.pitch.value[0]+=pitch*rad;
-  }
-  public function setPitch(pitch:Float){
-    shader.pitch.value[0]=pitch*rad;
-  }
+	public function setglitchAmplitude(alpha:Float)
+	{
+		shader.glitchAmplitude.value[0] = alpha;
+	}
+
+	public function setglitchNarrowness(alpha:Float)
+	{
+		shader.glitchAmplitude.value[0] = alpha;
+	}
+
+	public function setglitchBlockiness(alpha:Float)
+	{
+		shader.glitchAmplitude.value[0] = alpha;
+	}
+
+	public function setglitchMinimizer(alpha:Float)
+	{
+		shader.glitchAmplitude.value[0] = alpha;
+	}
+
+	public function defaultGlitch()
+	{
+		shader.glitchAmplitude.value[0] = 0.2;
+		shader.glitchNarrowness.value[0] = 4.0;
+		shader.glitchBlockiness.value[0] = 2.0;
+		shader.glitchMinimizer.value[0] = 5.0;
+	}
 }
 
-class RaymarchShader extends FlxShader {
+class ErrorShader extends FlxShader {
   @:glFragmentSource('
-    #pragma header
-
-    // "RayMarching starting point"
-    // Modified by Nebula_Zorua
-    // by Martijn Steinrucken aka The Art of Code/BigWings - 2020
-    // The MIT License
-    // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, moy, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-    // Email: countfrolic@gmail.com
-    // Twitter: @The_ArtOfCode
-    // YouTube: youtube.com/TheArtOfCodeIsCool
-    // Facebook: https://www.facebook.com/groups/theartofcode/
-    //
-    // You can use this shader as a template for ray marching shaders
-
-    #define MAX_STEPS 100
-    #define MAX_DIST 100.
-    #define SURF_DIST 0.01
-
-    uniform float yaw;
-    uniform float pitch;
-
-    mat2 Rot(float a) {
-        float s=sin(a), c=cos(a);
-        return mat2(c, -s, s, c);
-    }
-
-    float sdBox(vec3 p, vec3 s) {
-        p = abs(p)-s;
-    	return length(max(p, 0.))+min(max(p.x, max(p.y, p.z)), 0.);
-    }
-
-    float GetDist(vec3 p) {
-        float d = sdBox(p, vec3(1.,1.,0));
-
-        return d;
-    }
-
-
-
-    float RayMarch(vec3 ro, vec3 rd) {
-    	float dO=0.;
-
-        for(int i=0; i<MAX_STEPS; i++) {
-        	vec3 p = ro + rd*dO;
-            float dS = GetDist(p);
-            dO += dS;
-            if(dO>MAX_DIST || abs(dS)<SURF_DIST) break;
-        }
-
-        return dO;
-    }
-
-    vec3 GetNormal(vec3 p) {
-    	float d = GetDist(p);
-        vec2 e = vec2(.001, 0);
-
-        vec3 n = d - vec3(
-            GetDist(p-e.xyy),
-            GetDist(p-e.yxy),
-            GetDist(p-e.yyx));
-
-        return normalize(n);
-    }
-
-    vec3 GetRayDir(vec2 uv, vec3 p, vec3 l, float z) {
-        vec3 f = normalize(l-p),
-            r = normalize(cross(vec3(0,1,0), f)),
-            u = cross(f,r),
-            c = f*z,
-            i = c + uv.x*r + uv.y*u,
-            d = normalize(i);
-        return d;
-    }
-
-    void main()
-    {
-        vec2 uv = openfl_TextureCoordv - vec2(0.5);
-        vec3 ro = vec3(0, 0., -2);
-
-        ro.xz *= Rot(yaw);
-        ro.yz *= Rot(pitch);
-
-        vec3 rd = GetRayDir(uv, ro, vec3(0,0.,0.), 1.);
-        vec4 col = vec4(0);
-
-        float d = RayMarch(ro, rd);
-
-        if(d<MAX_DIST) {
-            vec3 p = ro + rd * d;
-            vec3 n = GetNormal(p);
-            uv = vec2(p.x,p.y) * .5 + vec2(0.5);
-            col = flixel_texture2D(bitmap,uv);
-        }
-        gl_FragColor = col;
-    }
+	#pragma header
+	vec2 uv = openfl_TextureCoordv.xy;
+	vec2 fragCoord = openfl_TextureCoordv*openfl_TextureSize;
+	vec2 iResolution = openfl_TextureSize;
+	uniform float iTime;
+	#define iChannel0 bitmap
+	#define texture flixel_texture2D
+	#define fragColor gl_FragColor
+	#define mainImage main
+	
+	uniform float glitchAmplitude = 0.2; // increase this
+	uniform float glitchNarrowness = 4.0;
+	uniform float glitchBlockiness = 2.0;
+	uniform float glitchMinimizer = 5.0; // decrease this
+	
+	float rand(vec2 p)
+	{
+		float t = floor(iTime * 20.) / 10.;
+		return fract(sin(dot(p, vec2(t * 12.9898, t * 78.233))) * 43758.5453);
+	}
+	
+	float noise(vec2 uv, float blockiness)
+	{   
+		vec2 lv = fract(uv);
+		vec2 id = floor(uv);
+		
+		float n1 = rand(id);
+		float n2 = rand(id+vec2(1,0));
+		float n3 = rand(id+vec2(0,1));
+		float n4 = rand(id+vec2(1,1));
+		
+		vec2 u = smoothstep(0.0, 1.0 + blockiness, lv);
+	
+		return mix(mix(n1, n2, u.x), mix(n3, n4, u.x), u.y);
+	}
+	
+	float fbm(vec2 uv, int count, float blockiness, float complexity)
+	{
+		float val = 0.0;
+		float amp = 0.5;
+		
+		while(count != 0)
+		{
+			val += amp * noise(uv, blockiness);
+			amp *= 0.5;
+			uv *= complexity;    
+			count--;
+		}
+		
+		return val;
+	}
+	
+	
+	void main()
+	{
+		// Normalized pixel coordinates (from 0 to 1)
+		vec2 uv = fragCoord/iResolution.xy;
+		vec2 a = vec2(uv.x * (iResolution.x / iResolution.y), uv.y);
+		vec2 uv2 = vec2(a.x / iResolution.x, exp(a.y));
+		vec2 id = floor(uv * 8.0);
+		//id.x /= floor(texture2D(bitmap, vec2(id / 8.0)).r * 8.0);
+	
+		// Generate shift amplitude
+		float shift = glitchAmplitude * pow(fbm(uv2, int(rand(id) * 6.), glitchBlockiness, glitchNarrowness), glitchMinimizer);
+		
+		// Create a scanline effect
+		float scanline = abs(cos(uv.y * 400.));
+		scanline = smoothstep(0.0, 2.0, scanline);
+		shift = smoothstep(0.00001, 0.2, shift);
+		
+		// Apply glitch and RGB shift
+		float colR = texture2D(bitmap, vec2(uv.x + shift, uv.y)).r * (1. - shift) ;
+		float colG = texture2D(bitmap, vec2(uv.x - shift, uv.y)).g * (1. - shift) + rand(id) * shift;
+		float colB = texture2D(bitmap, vec2(uv.x - shift, uv.y)).b * (1. - shift);
+		// Mix with the scanline effect
+		vec3 f = vec3(colR, colG, colB) - (0.1 * scanline);
+		
+		// Output to screen
+		gl_FragColor = vec4(f, 1.0);
+		gl_FragColor.a = flixel_texture2D(bitmap, openfl_TextureCoordv).a;
+	
+	}
   ')
   public function new()
   {
     super();
   }
-}*/
+}
 
 
 class ChromaticAberrationShader extends FlxShader

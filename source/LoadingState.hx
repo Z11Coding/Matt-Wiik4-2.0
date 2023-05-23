@@ -25,7 +25,7 @@ using StringTools;
 
 class LoadingsState extends MusicBeatSubstate
 {
-	public var instantAlpha:Bool = false;
+	public static var instantAlpha:Bool = false;
 	var loadingart:FlxSprite;
 	public static var blackscreen:FlxSprite;
 	public static var loadingBarBG:FlxSprite;
@@ -117,12 +117,12 @@ class LoadingsState extends MusicBeatSubstate
 		var tip:FlxSprite = new FlxSprite(0, 590).loadGraphic(Paths.image('loading/extra/' + tipPrefix + '/' + FlxG.random.int(1, tipMax)));
 		tip.screenCenter(XY);
 		tip.y += 299;
-		add(tip);
+		//add(tip);
 		tip.antialiasing = true;
 
 
 		var theText:FlxSprite = new FlxSprite(0, 549).loadGraphic(Paths.image('loading/extra/' + tipPrefix + '/text'));
-		add(theText);
+		//add(theText);
 		theText.screenCenter(X);
 		theText.antialiasing = true;
 
@@ -143,7 +143,7 @@ class LoadingsState extends MusicBeatSubstate
 		super.update(elapsed);
 		loadingart.alpha += elapsed;
 		blackscreen.alpha += elapsed;
-		if (instantAlpha && !isSeeThrough)
+		if (instantAlpha)
 		{
 			blackscreen.alpha = 1;
 			loadingart.alpha = 1;
